@@ -1,0 +1,189 @@
+@import "tailwindcss";
+
+@plugin "tailwindcss-animate";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Funky Pop Palette Remappings */
+  --color-neon-cyan: var(--color-pop-blue);
+  --color-neon-purple: var(--color-pop-lavender);
+  --color-neon-green: var(--color-pop-teal);
+  --color-neon-pink: var(--color-pop-vermilion);
+
+  /* Industrial Citrus Palette - Bold Pop */
+  --color-pop-vermilion: #FF4F00;  /* Bright Red-Orange */
+  --color-pop-teal: #009688;       /* Deep Teal */
+  --color-pop-lavender: #FFD700;   /* Remapped to Gold/Yellow for this palette to keep "secondary" pop lively */
+  --color-pop-royal: #3F51B5;      /* Indigo/Royal Blue for accents */
+  
+  --color-pop-navy: #263238;       /* Blue-Grey/Charcoal for dark sections */
+  
+  /* Aliases for the "Pop" system (mapped for code compatibility) */
+  --color-pop-pink: var(--color-pop-vermilion); 
+  --color-pop-blue: var(--color-pop-royal);
+  --color-pop-green: var(--color-pop-teal);
+  --color-pop-yellow: var(--color-pop-lavender);
+  --color-pop-orange: var(--color-pop-vermilion);
+}
+
+:root {
+  /* Industrial Citrus - Light Mode */
+  --background: #FFFCF5;   /* Warm Paper / Cream */
+  --foreground: #000000;   /* Pure Black Ink */
+
+  --primary: #FF4F00;      /* Vermilion (Red-Orange) */
+  --primary-foreground: #ffffff;
+
+  --secondary: #009688;    /* Teal */
+  --secondary-foreground: #ffffff;
+
+  --muted: #F2EFE5;        /* Darker Cream/Beige */
+  --muted-foreground: #5C5C5C; /* Dark Gray */
+
+  --card: #ffffff;         /* White cards */
+  --card-foreground: #000000;
+
+  --border: #000000;       /* Solid Black borders */
+  --input: #000000;
+  --ring: #FF4F00;
+
+  --radius: 0.5rem;        /* Slightly tighter corners for industrial feel */
+}
+
+/* Base styles */
+body {
+  @apply bg-background text-foreground font-sans antialiased;
+  /* Subtle paper grain */
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Funky Typography Defaults */
+h1 {
+  @apply scroll-m-20 text-4xl font-black tracking-tight lg:text-6xl text-foreground;
+  /* Solid shadow text effect - Black on Black */
+  text-shadow: 3px 3px 0px rgba(0,0,0,0.1); 
+}
+
+h2 {
+  @apply scroll-m-20 pb-2 text-3xl font-extrabold tracking-tight first:mt-0 text-foreground;
+}
+
+h3 {
+  @apply scroll-m-20 text-2xl font-bold tracking-tight text-foreground;
+}
+
+h4 {
+  @apply scroll-m-20 text-xl font-bold tracking-tight text-foreground;
+}
+
+p {
+  @apply leading-7 [&:not(:first-child)]:mt-6 text-foreground/80 font-medium;
+}
+
+/* Utilities */
+@utility text-pop-gradient {
+  /* Just a solid highlight for this style */
+  @apply text-primary;
+}
+
+@utility border-ink {
+  @apply border-2 border-black;
+}
+
+@utility shadow-funky {
+  @apply shadow-[4px_4px_0px_0px_#000000];
+}
+
+@utility shadow-funky-hover {
+  @apply hover:shadow-[6px_6px_0px_0px_#000000] hover:-translate-y-0.5 transition-all duration-200;
+}
+
+@utility shadow-funky-sm {
+  @apply shadow-[2px_2px_0px_0px_#000000];
+}
+
+/* Modern Funky Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 79, 0, 0.4); }
+  50% { box-shadow: 0 0 20px 10px rgba(255, 79, 0, 0.1); }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-3deg); }
+  75% { transform: rotate(3deg); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+@keyframes bounce-in {
+  0% { opacity: 0; transform: scale(0.3) translateY(-50px); }
+  50% { opacity: 1; transform: scale(1.05); }
+  70% { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-wiggle {
+  animation: wiggle 0.5s ease-in-out;
+}
+
+.animate-bounce-in {
+  animation: bounce-in 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}

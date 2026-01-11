@@ -59,16 +59,16 @@ export default function HomePage() {
           <div className="grid gap-10 md:grid-cols-2 lg:gap-16">
             <AnimateOnScroll delay={100}>
               <ProductCard
-                title="DIKKHA"
-                description="AI-powered educational assistant for Class 9 & 10 students."
+                title="Dikkha AI"
+                description="Agentic AI study companion with digital textbooks and smart query understanding for Class 9 & 10 students."
                 features={[
-                  "Personalized AI Tutor",
-                  "NCTB Curriculum Aligned",
-                  "Instant Doubt Solving",
-                  "Progress Tracking"
+                  "Agentic RAG Engine",
+                  "NCTB Textbooks",
+                  "Voice Q&A",
+                  "Smart Query Rewriting"
                 ]}
                 href="/products/dikkha"
-                ctaText="Discover DIKKHA"
+                ctaText="Discover Dikkha AI"
                 badges={["Education", "AI"]}
               />
             </AnimateOnScroll>

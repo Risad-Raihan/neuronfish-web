@@ -23,7 +23,7 @@ export default function ProductsPage() {
           {/* DIKKHA Card */}
           <div className="flex flex-col overflow-hidden rounded-2xl border bg-card shadow-sm transition-shadow hover:shadow-md">
             <div className="aspect-video w-full bg-gradient-to-br from-indigo-500/10 to-purple-500/10 p-8 flex items-center justify-center">
-               <span className="text-4xl font-bold text-foreground/20">DIKKHA Preview</span>
+               <span className="text-4xl font-bold text-foreground/20">Dikkha AI Preview</span>
             </div>
             <div className="flex flex-1 flex-col p-8">
               <div className="mb-4">
@@ -31,22 +31,26 @@ export default function ProductsPage() {
                   Education
                 </span>
               </div>
-              <h2 className="mb-4 text-3xl font-bold">DIKKHA</h2>
+              <h2 className="mb-4 text-3xl font-bold">Dikkha AI</h2>
               <p className="mb-6 text-muted-foreground">
-                An AI-powered educational assistant designed specifically for Class 9 & 10 students in Bangladesh. DIKKHA acts as a personal tutor, providing instant explanations, practice problems, and exam preparation help tailored to the NCTB curriculum.
+                An AI-powered educational mobile application powered by Agentic RAG technology. Designed specifically for Class 9 & 10 students in Bangladesh, Dikkha AI provides digital textbook access, voice-powered Q&A, and intelligent explanations tailored to the NCTB curriculum. Our smart system understands your intent and rewrites queries for better results.
               </p>
               <ul className="mb-8 space-y-3 text-sm">
                 <li className="flex items-center">
                   <span className="mr-2 h-1.5 w-1.5 rounded-full bg-primary" />
-                  24/7 AI Doubt Solving
+                  Agentic RAG Engine with Smart Query Rewriting
                 </li>
                 <li className="flex items-center">
                    <span className="mr-2 h-1.5 w-1.5 rounded-full bg-primary" />
-                  Chapter-wise Practice Quizzes
+                  Digital Textbook Reader (NCTB-aligned)
                 </li>
                 <li className="flex items-center">
                    <span className="mr-2 h-1.5 w-1.5 rounded-full bg-primary" />
-                  Progress Analytics Dashboard
+                  Voice Input & Speech-to-Text
+                </li>
+                <li className="flex items-center">
+                   <span className="mr-2 h-1.5 w-1.5 rounded-full bg-primary" />
+                  AI-Generated Flashcards & Study Materials
                 </li>
               </ul>
               <div className="mt-auto pt-6">
@@ -107,30 +111,30 @@ export default function ProductsPage() {
                <thead>
                  <tr className="border-b">
                    <th className="pb-4 font-medium text-muted-foreground">Feature</th>
-                   <th className="pb-4 font-bold">DIKKHA</th>
+                   <th className="pb-4 font-bold">Dikkha AI</th>
                    <th className="pb-4 font-bold">CHHAR</th>
                  </tr>
                </thead>
                <tbody className="divide-y">
                  <tr>
                    <td className="py-4 text-muted-foreground">Core Technology</td>
-                   <td className="py-4">Generative AI (LLMs)</td>
+                   <td className="py-4">Agentic RAG (Retrieval-Augmented Generation)</td>
                    <td className="py-4">Geolocation & Recommendation Engine</td>
                  </tr>
                  <tr>
                     <td className="py-4 text-muted-foreground">Target Audience</td>
-                    <td className="py-4">Students (Class 9-10)</td>
+                    <td className="py-4">Students (Class 9-10, all groups)</td>
                     <td className="py-4">Shoppers & Diners in Dhaka</td>
                  </tr>
                  <tr>
                     <td className="py-4 text-muted-foreground">Platform</td>
-                    <td className="py-4">Web & Mobile App</td>
+                    <td className="py-4">Mobile App (Android/iOS)</td>
                     <td className="py-4">Mobile App (iOS/Android)</td>
                  </tr>
                  <tr>
-                    <td className="py-4 text-muted-foreground">Pricing Model</td>
-                    <td className="py-4">Freemium</td>
-                    <td className="py-4">Free for Users</td>
+                    <td className="py-4 text-muted-foreground">Key Features</td>
+                    <td className="py-4">Digital Textbooks, Voice Q&A, Smart Query Rewriting</td>
+                    <td className="py-4">Location-based Deals, Real-time Alerts</td>
                  </tr>
                </tbody>
              </table>

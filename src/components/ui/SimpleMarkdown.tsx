@@ -86,7 +86,7 @@ export function SimpleMarkdown({ content }: SimpleMarkdownProps) {
     // First, handle markdown links [text](url)
     const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g
     const linkMatches: Array<{ index: number; length: number; text: string; url: string }> = []
-    let match
+    let match: RegExpExecArray | null
     while ((match = linkRegex.exec(text)) !== null) {
       linkMatches.push({
         index: match.index,
@@ -113,7 +113,7 @@ export function SimpleMarkdown({ content }: SimpleMarkdownProps) {
     while ((match = urlRegex.exec(text)) !== null) {
       // Check if this URL is not already part of a markdown link
       const isInLink = linkMatches.some(
-        lm => match.index >= lm.index && match.index < lm.index + lm.length
+        lm => match!.index >= lm.index && match!.index < lm.index + lm.length
       )
       if (!isInLink) {
         urlMatches.push({

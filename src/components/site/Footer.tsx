@@ -58,6 +58,16 @@ export function Footer() {
                   Terms of Service
                 </Link>
               </li>
+              <li>
+                <Link href="/dikkha-ai/privacy" className="hover:text-primary hover:underline hover:decoration-2 hover:underline-offset-4 transition-all">
+                  Dikkha AI Privacy
+                </Link>
+              </li>
+              <li>
+                <Link href="/dikkha-ai/terms" className="hover:text-primary hover:underline hover:decoration-2 hover:underline-offset-4 transition-all">
+                  Dikkha AI Terms
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

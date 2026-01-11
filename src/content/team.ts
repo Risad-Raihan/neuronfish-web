@@ -22,7 +22,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   {
     id: "saif",
     name: "Saif Rashid",
-    role: "Co-founder, CMO",
+    role: "Co-founder, Director",
     bio: "Driving growth and brand strategy. Focused on bringing AI products to the Bangladeshi market.",
     initials: "SR",
     linkedin: "#", // Placeholder

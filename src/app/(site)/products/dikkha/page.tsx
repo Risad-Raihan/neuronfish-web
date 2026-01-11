@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { CheckCircle2, ArrowRight, BookOpen, Mic, Sparkles, Brain, Zap, BarChart3, ImageIcon, GraduationCap } from "lucide-react"
+import { CheckCircle2, ArrowRight, BookOpen, Mic, Sparkles, Brain, Zap, BarChart3, ImageIcon, GraduationCap, ScanText, MessageCircle } from "lucide-react"
 import { FAQAccordion } from "@/components/ui/FAQAccordion"
 import { Badge } from "@/components/ui/Badge"
 import { Button } from "@/components/ui/Button"
@@ -64,7 +64,7 @@ export default function DikkhaPage() {
             <p className="mb-8 text-xl text-white/90 font-medium leading-relaxed">
               Our advanced Agentic RAG system goes beyond simple question-answering. It intelligently understands your intent, rewrites queries when needed, and retrieves the perfect answers from NCTB-aligned educational content. This ensures you get accurate, contextually relevant explanations every time.
             </p>
-            <div className="grid gap-6 md:grid-cols-3 mt-12">
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mt-12">
               <div className="bg-white/10 backdrop-blur-sm rounded-xl border-2 border-white/20 p-6">
                 <Brain className="h-8 w-8 mb-4 mx-auto text-white" />
                 <h3 className="text-lg font-bold mb-2">Intent Understanding</h3>
@@ -76,9 +76,14 @@ export default function DikkhaPage() {
                 <p className="text-sm text-white/80">Automatically improves your questions for better results</p>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-xl border-2 border-white/20 p-6">
-                <Zap className="h-8 w-8 mb-4 mx-auto text-white" />
-                <h3 className="text-lg font-bold mb-2">Precise Retrieval</h3>
-                <p className="text-sm text-white/80">Finds the exact information from NCTB textbooks</p>
+                <ScanText className="h-8 w-8 mb-4 mx-auto text-white" />
+                <h3 className="text-lg font-bold mb-2">Contextual Explanations</h3>
+                <p className="text-sm text-white/80">Select any text to get instant, grade-appropriate explanations</p>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl border-2 border-white/20 p-6">
+                <MessageCircle className="h-8 w-8 mb-4 mx-auto text-white" />
+                <h3 className="text-lg font-bold mb-2">Academic Chat Assistant</h3>
+                <p className="text-sm text-white/80">Ask any question to our specialized subject tutors</p>
               </div>
             </div>
           </div>
@@ -102,16 +107,22 @@ export default function DikkhaPage() {
                  icon: BookOpen
                },
                {
-                 title: "Voice-Powered Learning",
-                 desc: "Ask questions using speech-to-text functionality in Bangla or English. Perfect for when typing is difficult or you're on the go.",
-                 color: "bg-pop-navy text-white",
-                 icon: Mic
+                 title: "Drag & Explain Technology",
+                 desc: "Stuck on a specific paragraph? Simply drag and select any portion of your textbook chapter. Our AI tutor—specifically trained for Class 9-10 students in Bangladesh—analyzes the context and provides instant, grade-appropriate explanations in simple, easy-to-understand language.",
+                 color: "bg-pop-royal text-white",
+                 icon: ScanText
                },
                {
-                 title: "AI-Powered Assistance",
-                 desc: "Select text from textbooks or ask questions to get instant explanations and problem-solving help. Our Agentic RAG ensures accurate, contextual answers.",
-                 color: "bg-pop-royal text-white",
-                 icon: Brain
+                 title: "24/7 Academic Chat Assistant",
+                 desc: "Have a broader question? Chat with our intelligent tutor about any academic topic. It acts as your personal guide, helping you solve problems, understand concepts, and learn better. Our specialized AI assistant provides the best possible output tailored for Bangladeshi students.",
+                 color: "bg-pop-navy text-white",
+                 icon: MessageCircle
+               },
+               {
+                 title: "Voice-Powered Learning",
+                 desc: "Ask questions using speech-to-text functionality in Bangla or English. Perfect for when typing is difficult or you're on the go.",
+                 color: "bg-pop-lavender",
+                 icon: Mic
                },
                {
                  title: "Smart Revision Tools",

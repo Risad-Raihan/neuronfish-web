@@ -60,12 +60,12 @@ export default function HomePage() {
             <AnimateOnScroll delay={100}>
               <ProductCard
                 title="Dikkha AI"
-                description="Agentic AI study companion with digital textbooks and smart query understanding for Class 9 & 10 students."
+                description="Agentic AI study companion with digital textbooks, drag-to-explain, and generalized chat for Class 9 & 10 students."
                 features={[
                   "Agentic RAG Engine",
-                  "NCTB Textbooks",
-                  "Voice Q&A",
-                  "Smart Query Rewriting"
+                  "Drag & Explain",
+                  "Generalized AI Chat",
+                  "NCTB Textbooks"
                 ]}
                 href="/products/dikkha"
                 ctaText="Discover Dikkha AI"

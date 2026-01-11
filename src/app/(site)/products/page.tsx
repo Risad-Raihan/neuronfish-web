@@ -33,12 +33,20 @@ export default function ProductsPage() {
               </div>
               <h2 className="mb-4 text-3xl font-bold">Dikkha AI</h2>
               <p className="mb-6 text-muted-foreground">
-                An AI-powered educational mobile application powered by Agentic RAG technology. Designed specifically for Class 9 & 10 students in Bangladesh, Dikkha AI provides digital textbook access, voice-powered Q&A, and intelligent explanations tailored to the NCTB curriculum. Our smart system understands your intent and rewrites queries for better results.
+                An AI-powered educational mobile application powered by Agentic RAG technology. Designed specifically for Class 9 & 10 students in Bangladesh, Dikkha AI provides digital textbook access, drag-to-explain functionality, generalized academic chat, voice-powered Q&A, and intelligent explanations tailored to the NCTB curriculum. Our smart system understands your intent and rewrites queries for better results.
               </p>
               <ul className="mb-8 space-y-3 text-sm">
                 <li className="flex items-center">
                   <span className="mr-2 h-1.5 w-1.5 rounded-full bg-primary" />
                   Agentic RAG Engine with Smart Query Rewriting
+                </li>
+                <li className="flex items-center">
+                   <span className="mr-2 h-1.5 w-1.5 rounded-full bg-primary" />
+                  Drag & Explain Text Analysis
+                </li>
+                <li className="flex items-center">
+                   <span className="mr-2 h-1.5 w-1.5 rounded-full bg-primary" />
+                  24/7 Generalized Academic Chat
                 </li>
                 <li className="flex items-center">
                    <span className="mr-2 h-1.5 w-1.5 rounded-full bg-primary" />
@@ -133,7 +141,7 @@ export default function ProductsPage() {
                  </tr>
                  <tr>
                     <td className="py-4 text-muted-foreground">Key Features</td>
-                    <td className="py-4">Digital Textbooks, Voice Q&A, Smart Query Rewriting</td>
+                    <td className="py-4">Drag & Explain, Generalized Chat, Digital Textbooks, Voice Q&A</td>
                     <td className="py-4">Location-based Deals, Real-time Alerts</td>
                  </tr>
                </tbody>

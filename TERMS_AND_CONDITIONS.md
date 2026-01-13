@@ -209,8 +209,8 @@ You agree to indemnify and hold harmless Dikkha AI, its officers, directors, emp
 For questions or concerns about these Terms, please contact us:
 
 **App Name:** Dikkha AI  
-**Developer:** Nafis Radoan  
-**Email:** contact@neuronfish.dev  
+**Developer:** NeuronFish
+**Email:** aistartup70@gmail.com
 **Address:** Dhaka, Bangladesh
 
 ---

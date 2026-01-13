@@ -230,8 +230,8 @@ You are advised to review this Privacy Policy periodically for any changes. Chan
 ## 11. Data Controller Information
 
 **App Name:** Dikkha AI  
-**Developer:** Nafis Radoan  
-**Contact Email:** contact@neuronfish.dev  
+**Developer:** NeuronFish
+**Contact Email:** aistartup70@gmail.com
 **Address:** Dhaka, Bangladesh
 
 ---
@@ -240,7 +240,7 @@ You are advised to review this Privacy Policy periodically for any changes. Chan
 
 If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us at:
 
-**Email:** contact@neuronfish.dev  
+**Email:** aistartup70@gmail.com
 **Subject Line:** Privacy Policy Inquiry
 
 We will respond to your inquiry within 30 days.

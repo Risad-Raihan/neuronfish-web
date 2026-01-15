@@ -9,27 +9,13 @@ export const metadata = {
 }
 
 export default async function PrivacyPage() {
-  const newFilePath = join(process.cwd(), "new_PRIVACY_POLICY.md")
-  const oldFilePath = join(process.cwd(), "PRIVACY_POLICY.md")
-  
-  const [newContent, oldContent] = await Promise.all([
-    readFile(newFilePath, "utf-8"),
-    readFile(oldFilePath, "utf-8"),
-  ])
-
-  // Combine both versions with a separator
-  const combinedContent = `${newContent}
-
----
-
-# Previous Version
-
-${oldContent}`
+  const filePath = join(process.cwd(), "PRIVACY_POLICY.md")
+  const content = await readFile(filePath, "utf-8")
 
   return (
     <div className="py-16 md:py-24">
       <Container className="max-w-4xl">
-        <SimpleMarkdown content={combinedContent} />
+        <SimpleMarkdown content={content} />
       </Container>
     </div>
   )

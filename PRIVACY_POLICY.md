@@ -1,6 +1,22 @@
 # Privacy Policy for Dikkha AI
 
-**Last Updated:** January 11, 2026
+**Last Updated:** January 15, 2026
+
+---
+
+## Important Disclaimer
+
+**Dikkha AI is an independent educational app and is NOT affiliated with, authorized by, endorsed by, or in any way officially connected to the National Curriculum and Textbook Board (NCTB) or the Government of Bangladesh.**
+
+**দিক্ষা এআই একটি স্বাধীন শিক্ষামূলক অ্যাপ এবং এটি জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড (এনসিটিবি) বা বাংলাদেশ সরকারের সাথে কোনোভাবেই অনুমোদিত বা আনুষ্ঠানিকভাবে সংযুক্ত নয়।**
+
+**Official Source of Textbooks:**
+- NCTB Official Website: https://nctb.gov.bd/
+- NCTB Textbooks Page: https://nctb.gov.bd/pages/static-pages/695b99afc4774958d7b70612
+
+The educational content in this app is based on publicly available NCTB textbooks. This app serves as a convenient study companion and reader.
+
+---
 
 ## Introduction
 
@@ -230,8 +246,8 @@ You are advised to review this Privacy Policy periodically for any changes. Chan
 ## 11. Data Controller Information
 
 **App Name:** Dikkha AI  
-**Developer:** NeuronFish
-**Contact Email:** aistartup70@gmail.com
+**Developer:** Nafis Radoan  
+**Contact Email:** contact@neuronfish.dev  
 **Address:** Dhaka, Bangladesh
 
 ---
@@ -240,7 +256,7 @@ You are advised to review this Privacy Policy periodically for any changes. Chan
 
 If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us at:
 
-**Email:** aistartup70@gmail.com
+**Email:** contact@neuronfish.dev  
 **Subject Line:** Privacy Policy Inquiry
 
 We will respond to your inquiry within 30 days.

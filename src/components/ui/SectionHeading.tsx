@@ -17,7 +17,7 @@ export function SectionHeading({
   return (
     <div
       className={cn(
-        "flex flex-col space-y-4",
+        "flex flex-col space-y-3",
         {
           "items-center text-center": align === "center",
           "items-start text-left": align === "left",
@@ -27,9 +27,9 @@ export function SectionHeading({
       )}
       {...props}
     >
-      <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl border-b-4 border-primary pb-2 inline-block shadow-[4px_4px_0px_0px_rgba(0,0,0,0.1)]">{title}</h2>
+      <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">{title}</h2>
       {subtitle && (
-        <p className="max-w-[700px] text-xl text-muted-foreground font-medium">{subtitle}</p>
+        <p className="max-w-[600px] text-lg text-muted-foreground">{subtitle}</p>
       )}
     </div>
   )

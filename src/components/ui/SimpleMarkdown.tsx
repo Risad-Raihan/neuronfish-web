@@ -18,7 +18,7 @@ export function SimpleMarkdown({ content }: SimpleMarkdownProps) {
       const text = currentParagraph.join(" ").trim()
       if (text) {
         elements.push(
-          <p key={elements.length} className="leading-7 [&:not(:first-child)]:mt-6 text-foreground/80 font-medium">
+          <p key={elements.length} className="leading-7 [&:not(:first-child)]:mt-4 text-muted-foreground">
             {parseInlineMarkdown(text)}
           </p>
         )
@@ -40,26 +40,23 @@ export function SimpleMarkdown({ content }: SimpleMarkdownProps) {
 
   const flushTable = () => {
     if (tableRows.length < 2) {
-      // Not a valid table, treat as regular content
       tableRows.forEach(row => currentParagraph.push(row))
       tableRows = []
       return
     }
 
-    // Parse header row
     const headerRow = tableRows[0].split("|").map(c => c.trim()).filter(c => c)
-    // Skip separator row (index 1)
     const dataRows = tableRows.slice(2).map(row => 
       row.split("|").map(c => c.trim()).filter(c => c)
     )
 
     elements.push(
       <div key={`table-${tableKey++}`} className="my-6 overflow-x-auto">
-        <table className="min-w-full border-2 border-black">
+        <table className="min-w-full border-collapse">
           <thead>
-            <tr className="bg-muted/50">
+            <tr className="border-b border-border">
               {headerRow.map((cell, idx) => (
-                <th key={idx} className="border-2 border-black px-4 py-3 text-left text-sm font-bold text-foreground">
+                <th key={idx} className="px-4 py-3 text-left text-sm font-semibold text-foreground">
                   {parseInlineMarkdown(cell)}
                 </th>
               ))}
@@ -67,9 +64,9 @@ export function SimpleMarkdown({ content }: SimpleMarkdownProps) {
           </thead>
           <tbody>
             {dataRows.map((row, rowIdx) => (
-              <tr key={rowIdx} className="border-t-2 border-black">
+              <tr key={rowIdx} className="border-b border-border">
                 {row.map((cell, cellIdx) => (
-                  <td key={cellIdx} className="border-2 border-black px-4 py-3 text-sm text-foreground/80 font-medium">
+                  <td key={cellIdx} className="px-4 py-3 text-sm text-muted-foreground">
                     {parseInlineMarkdown(cell)}
                   </td>
                 ))}
@@ -83,7 +80,6 @@ export function SimpleMarkdown({ content }: SimpleMarkdownProps) {
   }
 
   const parseInlineMarkdown = (text: string): ReactNode => {
-    // First, handle markdown links [text](url)
     const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g
     const linkMatches: Array<{ index: number; length: number; text: string; url: string }> = []
     let match: RegExpExecArray | null
@@ -96,7 +92,6 @@ export function SimpleMarkdown({ content }: SimpleMarkdownProps) {
       })
     }
 
-    // Then handle bold **text**
     const boldRegex = /\*\*(.+?)\*\*/g
     const boldMatches: Array<{ index: number; length: number; text: string }> = []
     while ((match = boldRegex.exec(text)) !== null) {
@@ -107,11 +102,9 @@ export function SimpleMarkdown({ content }: SimpleMarkdownProps) {
       })
     }
 
-    // Also detect plain URLs (http:// or https://)
     const urlRegex = /https?:\/\/[^\s]+/g
     const urlMatches: Array<{ index: number; length: number; url: string }> = []
     while ((match = urlRegex.exec(text)) !== null) {
-      // Check if this URL is not already part of a markdown link
       const isInLink = linkMatches.some(
         lm => match!.index >= lm.index && match!.index < lm.index + lm.length
       )
@@ -124,7 +117,6 @@ export function SimpleMarkdown({ content }: SimpleMarkdownProps) {
       }
     }
 
-    // Combine all matches and sort by index
     const allMatches = [
       ...linkMatches.map(m => ({ ...m, type: 'link' as const })),
       ...boldMatches.map(m => ({ ...m, type: 'bold' as const })),
@@ -139,12 +131,10 @@ export function SimpleMarkdown({ content }: SimpleMarkdownProps) {
     let currentIndex = 0
 
     allMatches.forEach((match, idx) => {
-      // Add text before the match
       if (match.index > currentIndex) {
         parts.push(text.slice(currentIndex, match.index))
       }
 
-      // Add the matched content
       if (match.type === 'link') {
         parts.push(
           <a
@@ -152,14 +142,14 @@ export function SimpleMarkdown({ content }: SimpleMarkdownProps) {
             href={match.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-primary hover:underline font-medium"
+            className="text-primary hover:underline"
           >
             {match.text}
           </a>
         )
       } else if (match.type === 'bold') {
         parts.push(
-          <strong key={`bold-${idx}`} className="font-bold text-foreground">
+          <strong key={`bold-${idx}`} className="font-semibold text-foreground">
             {match.text}
           </strong>
         )
@@ -170,7 +160,7 @@ export function SimpleMarkdown({ content }: SimpleMarkdownProps) {
             href={match.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-primary hover:underline font-medium break-all"
+            className="text-primary hover:underline break-all"
           >
             {match.url}
           </a>
@@ -180,7 +170,6 @@ export function SimpleMarkdown({ content }: SimpleMarkdownProps) {
       currentIndex = match.index + match.length
     })
 
-    // Add remaining text
     if (currentIndex < text.length) {
       parts.push(text.slice(currentIndex))
     }
@@ -191,7 +180,6 @@ export function SimpleMarkdown({ content }: SimpleMarkdownProps) {
   lines.forEach((line) => {
     const trimmed = line.trim()
 
-    // Handle tables - check if line starts with |
     if (trimmed.startsWith("|") && trimmed.endsWith("|")) {
       flushParagraph()
       flushList()
@@ -199,27 +187,24 @@ export function SimpleMarkdown({ content }: SimpleMarkdownProps) {
       return
     }
 
-    // If we were building a table but this line isn't a table row, flush the table
     if (tableRows.length > 0) {
       flushTable()
     }
 
-    // Handle horizontal rules
     if (trimmed === "---") {
       flushParagraph()
       flushList()
       elements.push(
-        <hr key={elements.length} className="my-8 border-t-2 border-black/20" />
+        <hr key={elements.length} className="my-8 border-t border-border" />
       )
       return
     }
 
-    // Handle headers
     if (trimmed.startsWith("# ")) {
       flushParagraph()
       flushList()
       elements.push(
-        <h1 key={elements.length} className="scroll-m-20 text-4xl font-black tracking-tight lg:text-6xl text-foreground mt-12 mb-6">
+        <h1 key={elements.length} className="scroll-m-20 text-3xl font-extrabold tracking-tight lg:text-4xl text-foreground mt-10 mb-4">
           {trimmed.slice(2)}
         </h1>
       )
@@ -230,7 +215,7 @@ export function SimpleMarkdown({ content }: SimpleMarkdownProps) {
       flushParagraph()
       flushList()
       elements.push(
-        <h2 key={elements.length} className="scroll-m-20 pb-2 text-3xl font-extrabold tracking-tight first:mt-0 text-foreground mt-10 mb-4">
+        <h2 key={elements.length} className="scroll-m-20 text-2xl font-semibold tracking-tight text-foreground mt-8 mb-3">
           {parseInlineMarkdown(trimmed.slice(3))}
         </h2>
       )
@@ -241,7 +226,7 @@ export function SimpleMarkdown({ content }: SimpleMarkdownProps) {
       flushParagraph()
       flushList()
       elements.push(
-        <h3 key={elements.length} className="scroll-m-20 text-2xl font-bold tracking-tight text-foreground mt-8 mb-3">
+        <h3 key={elements.length} className="scroll-m-20 text-xl font-semibold tracking-tight text-foreground mt-6 mb-2">
           {parseInlineMarkdown(trimmed.slice(4))}
         </h3>
       )
@@ -252,26 +237,24 @@ export function SimpleMarkdown({ content }: SimpleMarkdownProps) {
       flushParagraph()
       flushList()
       elements.push(
-        <h4 key={elements.length} className="scroll-m-20 text-xl font-bold tracking-tight text-foreground mt-6 mb-2">
+        <h4 key={elements.length} className="scroll-m-20 text-lg font-semibold tracking-tight text-foreground mt-4 mb-2">
           {parseInlineMarkdown(trimmed.slice(5))}
         </h4>
       )
       return
     }
 
-    // Handle list items
     if (trimmed.startsWith("- ")) {
       flushParagraph()
       const listContent = trimmed.slice(2)
       listItems.push(
-        <li key={listItems.length} className="text-foreground/80 font-medium">
+        <li key={listItems.length} className="text-muted-foreground">
           {parseInlineMarkdown(listContent)}
         </li>
       )
       return
     }
 
-    // Handle empty lines
     if (trimmed === "") {
       flushParagraph()
       flushList()
@@ -281,15 +264,12 @@ export function SimpleMarkdown({ content }: SimpleMarkdownProps) {
       return
     }
 
-    // Regular paragraph content
     currentParagraph.push(trimmed)
   })
 
-  // Flush any remaining content
   flushParagraph()
   flushList()
   flushTable()
 
-  return <div className="prose prose-gray max-w-none dark:prose-invert">{elements}</div>
+  return <div className="prose prose-zinc dark:prose-invert max-w-none">{elements}</div>
 }
-

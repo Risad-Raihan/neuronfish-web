@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Github, Linkedin } from "lucide-react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/Avatar"
+import { GlowCard } from "@/components/ui/GlowCard"
 import { TeamMember } from "@/content/team"
 
 interface TeamCardProps {
@@ -10,44 +10,42 @@ interface TeamCardProps {
 
 export function TeamCard({ member }: TeamCardProps) {
   return (
-    <Card className="h-full bg-white transition-all duration-300 hover:-translate-y-2 hover:shadow-[10px_10px_0px_0px_#000000] hover:border-primary hover:scale-[1.02] group">
-      <CardHeader className="flex flex-row items-center gap-4 pb-4">
-        <Avatar className="h-16 w-16 border-2 border-black shadow-funky-sm transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 group-hover:border-primary group-hover:shadow-[4px_4px_0px_0px_#000000]">
+    <GlowCard className="h-full">
+      <div className="flex flex-row items-center gap-4 p-6 pb-4">
+        <Avatar className="h-14 w-14">
           <AvatarImage src={member.photoUrl} alt={member.name} />
-          <AvatarFallback className="bg-primary font-bold text-white text-xl group-hover:bg-secondary transition-colors duration-300">
+          <AvatarFallback className="bg-primary/10 font-semibold text-primary text-lg">
             {member.initials}
           </AvatarFallback>
         </Avatar>
         <div className="space-y-1">
-          <CardTitle className="text-lg font-bold group-hover:text-primary transition-colors duration-300">{member.name}</CardTitle>
-          <p className="text-sm font-bold text-primary uppercase tracking-wide group-hover:text-secondary transition-colors duration-300">
-            {member.role}
-          </p>
+          <h3 className="text-base font-semibold tracking-tight text-foreground">{member.name}</h3>
+          <p className="text-sm text-primary font-medium">{member.role}</p>
         </div>
-      </CardHeader>
-      <CardContent>
-        <p className="mb-6 text-sm font-medium text-foreground/70 leading-relaxed group-hover:text-foreground transition-colors duration-300">{member.bio}</p>
-        <div className="flex gap-4">
+      </div>
+      <div className="px-6 pb-6">
+        <p className="mb-4 text-sm text-muted-foreground leading-relaxed">{member.bio}</p>
+        <div className="flex gap-3">
           {member.linkedin && (
             <Link
               href={member.linkedin}
-              className="text-black transition-all duration-300 hover:scale-125 hover:text-primary hover:rotate-12"
+              className="text-muted-foreground transition-colors hover:text-foreground"
               aria-label={`${member.name}'s LinkedIn`}
             >
-              <Linkedin className="h-6 w-6" />
+              <Linkedin className="h-4 w-4" />
             </Link>
           )}
           {member.github && (
             <Link
               href={member.github}
-              className="text-black transition-all duration-300 hover:scale-125 hover:text-secondary hover:rotate-12"
+              className="text-muted-foreground transition-colors hover:text-foreground"
               aria-label={`${member.name}'s GitHub`}
             >
-              <Github className="h-6 w-6" />
+              <Github className="h-4 w-4" />
             </Link>
           )}
         </div>
-      </CardContent>
-    </Card>
+      </div>
+    </GlowCard>
   )
 }

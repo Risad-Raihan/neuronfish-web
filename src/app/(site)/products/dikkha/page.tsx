@@ -1,10 +1,12 @@
 import Link from "next/link"
-import { CheckCircle2, ArrowRight, BookOpen, Mic, Sparkles, Brain, Zap, BarChart3, ImageIcon, GraduationCap, ScanText, MessageCircle } from "lucide-react"
+import { ArrowRight, BookOpen, Mic, Sparkles, Brain, ScanText, MessageCircle, GraduationCap, BarChart3, ImageIcon } from "lucide-react"
 import { FAQAccordion } from "@/components/ui/FAQAccordion"
 import { Badge } from "@/components/ui/Badge"
 import { Button } from "@/components/ui/Button"
 import { Container } from "@/components/ui/Container"
 import { SectionHeading } from "@/components/ui/SectionHeading"
+import { GridPattern } from "@/components/ui/GridPattern"
+import { GlowCard } from "@/components/ui/GlowCard"
 
 export const metadata = {
   title: "DIKKHA AI - AI Tutor for Class 9 & 10",
@@ -14,202 +16,193 @@ export const metadata = {
 export default function DikkhaPage() {
   return (
     <>
-      {/* Hero - Royal/Indigo Industrial */}
-      <section className="bg-pop-royal text-white py-20 md:py-28 border-b-2 border-black relative overflow-hidden">
-        {/* Decorative elements */}
-        <div className="absolute top-0 right-0 h-64 w-64 rounded-none rotate-45 bg-white/10 blur-xl -z-10" />
-        <Container>
-          <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
+      {/* Hero */}
+      <section className="relative overflow-hidden py-20 md:py-28 section-gradient-light">
+        <GridPattern className="opacity-30" />
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute top-0 right-1/4 h-96 w-96 rounded-full bg-primary/5 blur-[120px] animate-float-slow" />
+        </div>
+        <Container className="relative">
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>
-              <Badge className="mb-6 bg-white text-pop-royal border-2 border-black hover:bg-gray-100 shadow-funky-sm text-sm py-1 px-3">
+              <Badge className="mb-4">
                 For Class 9 & 10 Students
               </Badge>
-              <h1 className="mb-8 text-5xl font-extrabold tracking-tight sm:text-6xl text-white">
-                Master Your Studies with <span className="text-white underline decoration-wavy decoration-white decoration-2 underline-offset-4">DIKKHA</span>
+              <h1 className="mb-6 text-4xl font-extrabold tracking-tight sm:text-5xl">
+                Master Your Studies with <span className="text-gradient">DIKKHA</span>
               </h1>
-              <p className="mb-10 text-xl text-white/90 font-medium leading-relaxed">
-                An AI-powered educational mobile application with digital textbook reader, voice input, and intelligent assistance. Powered by Agentic RAG technology that understands your intent and rewrites queries for the perfect answer. Tailored for Class 9-10 students following the NCTB curriculum.
+              <p className="mb-8 text-lg text-muted-foreground leading-relaxed">
+                An AI-powered educational mobile application with digital textbook reader, voice input, and intelligent assistance. Powered by Agentic RAG technology that understands your intent and rewrites queries for the perfect answer.
               </p>
-              <div className="flex flex-col gap-4 sm:flex-row">
-                <Button size="lg" className="bg-white hover:bg-white/90 text-pop-royal border-2 border-black shadow-[4px_4px_0px_0px_#000] hover:shadow-[6px_6px_0px_0px_#000] hover:-translate-y-1" asChild>
+              <div className="flex flex-col gap-3 sm:flex-row">
+                <Button size="lg" variant="glow" asChild>
                   <Link href="/contact?subject=DIKKHA%20AI%20Early%20Access">
                     Get Early Access
                   </Link>
                 </Button>
-                <Button size="lg" variant="outline" className="bg-transparent text-white border-2 border-white hover:bg-white/10 shadow-none hover:-translate-y-1" asChild>
+                <Button size="lg" variant="outline" asChild>
                   <Link href="#features">Learn More</Link>
                 </Button>
               </div>
             </div>
-            <div className="relative aspect-square rounded-xl bg-white border-2 border-black flex items-center justify-center p-8 shadow-funky">
-               <div className="text-center opacity-70">
-                  <span className="block text-9xl mb-4">📚</span>
-                  <span className="text-lg font-bold uppercase tracking-widest text-foreground">App Interface</span>
-               </div>
+            <div className="flex items-center justify-center">
+              <div className="device-phone">
+                <div className="flex h-full items-center justify-center pt-8 bg-gradient-to-b from-primary/5 to-transparent">
+                  <div className="text-center">
+                    <span className="block text-6xl mb-3">📚</span>
+                    <span className="text-xs font-bold tracking-widest text-muted-foreground uppercase">Dikkha AI</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </Container>
       </section>
 
       {/* Technology Spotlight */}
-      <section className="py-20 md:py-28 bg-pop-navy text-white border-b-2 border-black">
+      <section className="border-t border-border bg-muted/30 py-20 md:py-28">
         <Container>
           <div className="max-w-4xl mx-auto text-center">
-            <Badge className="mb-6 bg-white text-pop-navy border-2 border-black shadow-funky-sm text-sm py-1 px-3">
+            <Badge className="mb-4">
               Powered by Agentic RAG
             </Badge>
-            <h2 className="mb-6 text-4xl font-extrabold sm:text-5xl text-white">
-              Smart Intelligence That Understands You
+            <h2 className="mb-4 text-3xl font-extrabold sm:text-4xl">
+              Smart Intelligence That <span className="text-gradient">Understands You</span>
             </h2>
-            <p className="mb-8 text-xl text-white/90 font-medium leading-relaxed">
-              Our advanced Agentic RAG system goes beyond simple question-answering. It intelligently understands your intent, rewrites queries when needed, and retrieves the perfect answers from NCTB-aligned educational content. This ensures you get accurate, contextually relevant explanations every time.
+            <p className="mb-12 text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+              Our advanced Agentic RAG system goes beyond simple question-answering. It intelligently understands your intent, rewrites queries when needed, and retrieves the perfect answers from NCTB-aligned educational content.
             </p>
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mt-12">
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl border-2 border-white/20 p-6">
-                <Brain className="h-8 w-8 mb-4 mx-auto text-white" />
-                <h3 className="text-lg font-bold mb-2">Intent Understanding</h3>
-                <p className="text-sm text-white/80">Analyzes what you really mean, not just what you type</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl border-2 border-white/20 p-6">
-                <Sparkles className="h-8 w-8 mb-4 mx-auto text-white" />
-                <h3 className="text-lg font-bold mb-2">Query Rewriting</h3>
-                <p className="text-sm text-white/80">Automatically improves your questions for better results</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl border-2 border-white/20 p-6">
-                <ScanText className="h-8 w-8 mb-4 mx-auto text-white" />
-                <h3 className="text-lg font-bold mb-2">Contextual Explanations</h3>
-                <p className="text-sm text-white/80">Select any text to get instant, grade-appropriate explanations</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl border-2 border-white/20 p-6">
-                <MessageCircle className="h-8 w-8 mb-4 mx-auto text-white" />
-                <h3 className="text-lg font-bold mb-2">Academic Chat Assistant</h3>
-                <p className="text-sm text-white/80">Ask any question to our specialized subject tutors</p>
-              </div>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                { icon: Brain, title: "Intent Understanding", desc: "Analyzes what you really mean, not just what you type" },
+                { icon: Sparkles, title: "Query Rewriting", desc: "Automatically improves your questions for better results" },
+                { icon: ScanText, title: "Contextual Explanations", desc: "Select any text to get instant, grade-appropriate explanations" },
+                { icon: MessageCircle, title: "Academic Chat Assistant", desc: "Ask any question to our specialized subject tutors" },
+              ].map((item, i) => (
+                <GlowCard key={i} className="p-6 text-center">
+                  <item.icon className="h-6 w-6 mx-auto mb-3 text-primary" />
+                  <h3 className="text-sm font-semibold text-foreground mb-1">{item.title}</h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
+                </GlowCard>
+              ))}
             </div>
           </div>
         </Container>
       </section>
 
       {/* Features */}
-      <section id="features" className="py-20 md:py-28 bg-white border-b-2 border-black">
+      <section id="features" className="py-20 md:py-28">
         <Container>
           <SectionHeading
             title="Why Students Love DIKKHA AI"
             subtitle="Everything you need to excel in your academic journey."
-            className="mb-16"
+            className="mb-14"
           />
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-             {[
-               {
-                 title: "Digital Textbook Reader",
-                 desc: "Access NCTB-aligned educational content in Bangla and English directly in the app. Read chapters, browse subjects, and study at your own pace.",
-                 color: "bg-pop-lavender",
-                 icon: BookOpen
-               },
-               {
-                 title: "Drag & Explain Technology",
-                 desc: "Stuck on a specific paragraph? Simply drag and select any portion of your textbook chapter. Our AI tutor—specifically trained for Class 9-10 students in Bangladesh—analyzes the context and provides instant, grade-appropriate explanations in simple, easy-to-understand language.",
-                 color: "bg-pop-royal text-white",
-                 icon: ScanText
-               },
-               {
-                 title: "24/7 Academic Chat Assistant",
-                 desc: "Have a broader question? Chat with our intelligent tutor about any academic topic. It acts as your personal guide, helping you solve problems, understand concepts, and learn better. Our specialized AI assistant provides the best possible output tailored for Bangladeshi students.",
-                 color: "bg-pop-navy text-white",
-                 icon: MessageCircle
-               },
-               {
-                 title: "Voice-Powered Learning",
-                 desc: "Ask questions using speech-to-text functionality in Bangla or English. Perfect for when typing is difficult or you're on the go.",
-                 color: "bg-pop-lavender",
-                 icon: Mic
-               },
-               {
-                 title: "Smart Revision Tools",
-                 desc: "Generate AI-powered flashcards automatically from your study materials. Organize by subject and topic for efficient revision.",
-                 color: "bg-pop-lavender",
-                 icon: Sparkles
-               }
-             ].map((feature, i) => (
-               <div key={i} className="rounded-xl border-2 border-black p-8 shadow-funky bg-white hover:-translate-y-1 hover:shadow-funky-hover transition-all">
-                 <div className={`mb-6 inline-flex rounded-full ${feature.color} p-3 text-foreground border-2 border-black shadow-funky-sm`}>
-                   <feature.icon className="h-6 w-6" />
-                 </div>
-                 <h3 className="mb-3 text-2xl font-bold text-foreground">{feature.title}</h3>
-                 <p className="text-foreground/70 font-medium leading-relaxed">{feature.desc}</p>
-               </div>
-             ))}
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {[
+              {
+                title: "Digital Textbook Reader",
+                desc: "Access NCTB-aligned educational content in Bangla and English directly in the app. Read chapters, browse subjects, and study at your own pace.",
+                icon: BookOpen
+              },
+              {
+                title: "Drag & Explain Technology",
+                desc: "Stuck on a specific paragraph? Simply drag and select any portion of your textbook chapter. Our AI tutor analyzes the context and provides instant explanations.",
+                icon: ScanText
+              },
+              {
+                title: "24/7 Academic Chat Assistant",
+                desc: "Have a broader question? Chat with our intelligent tutor about any academic topic. It acts as your personal guide for solving problems.",
+                icon: MessageCircle
+              },
+              {
+                title: "Voice-Powered Learning",
+                desc: "Ask questions using speech-to-text functionality in Bangla or English. Perfect for when typing is difficult or you're on the go.",
+                icon: Mic
+              },
+              {
+                title: "Smart Revision Tools",
+                desc: "Generate AI-powered flashcards automatically from your study materials. Organize by subject and topic for efficient revision.",
+                icon: Sparkles
+              }
+            ].map((feature, i) => (
+              <GlowCard key={i} className="p-6">
+                <div className="mb-4 inline-flex rounded-lg bg-primary/10 p-2.5 text-primary">
+                  <feature.icon className="h-5 w-5" />
+                </div>
+                <h3 className="mb-2 text-lg font-semibold text-foreground">{feature.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{feature.desc}</p>
+              </GlowCard>
+            ))}
           </div>
         </Container>
       </section>
 
       {/* How it Works */}
-      <section className="bg-pop-lavender/10 py-20 md:py-28 border-b-2 border-black">
+      <section className="border-t border-border bg-muted/30 py-20 md:py-28">
         <Container>
-           <SectionHeading title="How It Works" className="mb-16" />
-           <div className="grid gap-12 md:grid-cols-3 relative">
-              {/* Connecting line for desktop */}
-              <div className="hidden md:block absolute top-12 left-0 w-full h-1 bg-black -z-10" />
-              
-              {[
-                { step: "01", title: "Sign Up", desc: "Create your account with your phone number. Select your class (9 or 10), group (Science, Commerce, or Humanities), and education board.", color: "bg-pop-royal" },
-                { step: "02", title: "Read & Ask", desc: "Browse digital textbooks or select text for explanations. Ask questions via text or voice. Our Agentic RAG understands your intent and finds the perfect answer.", color: "bg-pop-lavender" },
-                { step: "03", title: "Study & Revise", desc: "Generate flashcards from your study materials, organize chat sessions by subject, and track your reading progress across chapters.", color: "bg-pop-navy" }
-              ].map((item, i) => (
-                <div key={i} className="relative flex flex-col items-center text-center bg-white p-6 rounded-xl border-2 border-black shadow-funky">
-                   <div className={`mb-6 flex h-16 w-16 items-center justify-center rounded-full ${item.color} text-2xl font-black text-white border-2 border-black shadow-funky-sm`}>
-                     {item.step}
-                   </div>
-                   <h3 className="mb-3 text-xl font-bold text-foreground">{item.title}</h3>
-                   <p className="text-foreground/70 font-medium">{item.desc}</p>
-                </div>
-              ))}
-           </div>
+          <SectionHeading title="How It Works" className="mb-14" />
+          <div className="grid gap-8 md:grid-cols-3">
+            {[
+              { step: "01", title: "Sign Up", desc: "Create your account with your phone number. Select your class (9 or 10), group (Science, Commerce, or Humanities), and education board." },
+              { step: "02", title: "Read & Ask", desc: "Browse digital textbooks or select text for explanations. Ask questions via text or voice. Our Agentic RAG understands your intent and finds the perfect answer." },
+              { step: "03", title: "Study & Revise", desc: "Generate flashcards from your study materials, organize chat sessions by subject, and track your reading progress across chapters." }
+            ].map((item, i) => (
+              <div key={i} className="relative">
+                {i < 2 && (
+                  <div className="hidden md:block absolute top-8 left-[calc(50%+32px)] w-[calc(100%-64px)] h-px bg-gradient-to-r from-primary/30 to-transparent" />
+                )}
+                <GlowCard className="flex flex-col items-center text-center p-8">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-lg font-extrabold text-primary">
+                    {item.step}
+                  </div>
+                  <h3 className="mb-2 text-base font-semibold text-foreground">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                </GlowCard>
+              </div>
+            ))}
+          </div>
         </Container>
       </section>
 
-      {/* Future Enhancements */}
-      <section className="py-20 md:py-28 bg-white border-b-2 border-black">
+      {/* Coming Soon */}
+      <section className="py-20 md:py-28">
         <Container>
           <SectionHeading
             title="Coming Soon"
             subtitle="Exciting features we're building to enhance your learning experience."
-            className="mb-16"
+            className="mb-14"
           />
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {[
               {
                 title: "Graphical Animation Learning",
                 desc: "Visual animations and interactive graphics to help you understand complex concepts better.",
-                color: "bg-pop-lavender",
                 icon: GraduationCap
               },
               {
                 title: "Chapter & Topic-wise Quizzes",
                 desc: "Automated quizzes organized by chapters and topics to test your understanding and prepare for exams.",
-                color: "bg-pop-navy text-white",
                 icon: BarChart3
               },
               {
                 title: "Infographic Generation",
                 desc: "AI-generated visual summaries and infographics from your study materials for quick revision.",
-                color: "bg-pop-royal text-white",
                 icon: ImageIcon
               },
               {
                 title: "Personal Assessment Dashboard",
-                desc: "Comprehensive analytics showing your strengths, weaknesses, and progress across all subjects and topics.",
-                color: "bg-pop-lavender",
+                desc: "Comprehensive analytics showing your strengths, weaknesses, and progress across all subjects.",
                 icon: BarChart3
               }
             ].map((feature, i) => (
-              <div key={i} className="rounded-xl border-2 border-black border-dashed p-8 shadow-funky bg-white/50 hover:-translate-y-1 hover:shadow-funky-hover transition-all opacity-90">
-                <div className={`mb-6 inline-flex rounded-full ${feature.color} p-3 text-foreground border-2 border-black shadow-funky-sm`}>
-                  <feature.icon className="h-6 w-6" />
+              <div key={i} className="rounded-xl border border-dashed border-primary/20 bg-card/50 p-6 transition-all duration-300 hover:border-primary/40 hover:shadow-sm">
+                <div className="mb-4 inline-flex rounded-lg bg-muted p-2.5 text-muted-foreground">
+                  <feature.icon className="h-5 w-5" />
                 </div>
-                <Badge className="mb-3 bg-black text-white text-xs">Coming Soon</Badge>
-                <h3 className="mb-3 text-xl font-bold text-foreground">{feature.title}</h3>
-                <p className="text-foreground/70 font-medium leading-relaxed text-sm">{feature.desc}</p>
+                <Badge variant="secondary" className="mb-2 text-xs">Coming Soon</Badge>
+                <h3 className="mb-2 text-base font-semibold text-foreground">{feature.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{feature.desc}</p>
               </div>
             ))}
           </div>
@@ -217,9 +210,9 @@ export default function DikkhaPage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-20 md:py-28 bg-white border-b-2 border-black">
+      <section id="faq" className="border-t border-border bg-muted/30 py-20 md:py-28">
         <Container className="max-w-3xl">
-          <SectionHeading title="Frequently Asked Questions" className="mb-16" />
+          <SectionHeading title="Frequently Asked Questions" className="mb-12" />
           <FAQAccordion
             items={[
               {
@@ -252,16 +245,19 @@ export default function DikkhaPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 md:py-28 bg-pop-royal text-white">
+      <section className="py-20 md:py-28">
         <Container>
-          <div className="rounded-2xl bg-white/10 px-6 py-16 text-center text-white border-2 border-white/20 shadow-none max-w-4xl mx-auto backdrop-blur-sm">
-            <h2 className="mb-6 text-4xl font-extrabold sm:text-5xl text-white drop-shadow-md">Ready to boost your grades?</h2>
-            <p className="mb-10 text-xl font-bold text-white/90">Join students learning smarter with Dikkha AI. Get early access to the future of education.</p>
-            <Button size="lg" variant="secondary" asChild className="bg-white text-pop-royal hover:bg-gray-100 border-2 border-white shadow-[4px_4px_0px_0px_#000] hover:shadow-[6px_6px_0px_0px_#000] hover:-translate-y-1">
-               <Link href="/contact?subject=Dikkha%20AI%20Early%20Access">
-                 Get Early Access <ArrowRight className="ml-2 h-5 w-5" />
-               </Link>
-            </Button>
+          <div className="cta-dark relative overflow-hidden rounded-2xl px-6 py-16 text-center max-w-3xl mx-auto border border-white/[0.08]">
+            <GridPattern className="opacity-[0.06] fill-white" />
+            <div className="relative">
+              <h2 className="mb-4 text-3xl font-extrabold sm:text-4xl text-white">Ready to boost your grades?</h2>
+              <p className="mb-8 text-lg text-zinc-400">Join students learning smarter with Dikkha AI. Get early access to the future of education.</p>
+              <Button size="lg" variant="glow" asChild>
+                <Link href="/contact?subject=Dikkha%20AI%20Early%20Access" className="flex items-center gap-2">
+                  Get Early Access <ArrowRight className="h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
           </div>
         </Container>
       </section>

@@ -1,11 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 
-const inter = Inter({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-jakarta",
 });
 
 export const metadata: Metadata = {
@@ -45,7 +45,10 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0a0a0a",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#FFFFFF" },
+    { media: "(prefers-color-scheme: dark)", color: "#09090B" },
+  ],
 };
 
 export default function RootLayout({
@@ -54,13 +57,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className="dark">
-      <body className={`${inter.variable} antialiased min-h-screen bg-background font-sans text-foreground`}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${jakarta.variable} antialiased min-h-screen bg-background font-sans text-foreground`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
-          forcedTheme="dark"
-          disableTransitionOnChange
+          enableSystem
         >
           {children}
         </ThemeProvider>

@@ -41,8 +41,8 @@ export function AnimateOnScroll({
   return (
     <motion.div
       ref={ref}
-      initial={hidden}
-      animate={isInView ? visible : hidden}
+      initial={hidden as any}
+      animate={(isInView ? visible : hidden) as any}
       transition={{ duration: 0.55, delay: delay / 1000, ease: [0.25, 0.4, 0.25, 1] }}
       className={className}
     >

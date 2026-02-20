@@ -29,11 +29,12 @@ export default function ProductsPage() {
             <GlowCard className="flex flex-col overflow-hidden">
               <div className="relative h-52 bg-gradient-to-br from-primary/5 to-primary/15 flex items-center justify-center">
                 <div className="device-phone scale-[0.38] origin-center">
-                  <div className="flex h-full items-center justify-center pt-8">
-                    <div className="text-center">
-                      <span className="block text-4xl mb-2">📚</span>
-                      <span className="text-xs font-bold tracking-widest text-muted-foreground uppercase">Dikkha AI</span>
-                    </div>
+                  <div className="h-full overflow-hidden">
+                    <img
+                      src="/products/dikkha/homepage.jpeg"
+                      alt="Dikkha AI app homepage"
+                      className="h-full w-full object-cover object-top"
+                    />
                   </div>
                 </div>
               </div>
@@ -43,18 +44,25 @@ export default function ProductsPage() {
                     Education
                   </span>
                 </div>
+                <div className="mb-4 flex items-center gap-2">
+                  <img
+                    src="/products/dikkha/dikkha-logo.svg"
+                    alt="Dikkha AI logo"
+                    className="h-6 w-6 rounded"
+                  />
+                  <span className="text-xs font-semibold tracking-wide text-muted-foreground uppercase">Official app</span>
+                </div>
                 <h2 className="mb-3 text-2xl font-semibold text-foreground">Dikkha AI</h2>
                 <p className="mb-6 text-sm text-muted-foreground leading-relaxed">
-                  An AI-powered educational mobile application powered by Agentic RAG technology. Designed specifically for Class 9 & 10 students in Bangladesh, Dikkha AI provides digital textbook access, drag-to-explain functionality, generalized academic chat, voice-powered Q&A, and intelligent explanations tailored to the NCTB curriculum.
+                  An efficient AI study assistant for all Class 9-10 students in Bangladesh. Dikkha AI blends textbook-first learning with AI Explain, flashcards, formula support, and infographic generation.
                 </p>
                 <ul className="mb-8 space-y-2.5 text-sm text-muted-foreground">
                   {[
-                    "Agentic RAG Engine with Smart Query Rewriting",
-                    "Drag & Explain Text Analysis",
-                    "24/7 Generalized Academic Chat",
-                    "Digital Textbook Reader (NCTB-aligned)",
-                    "Voice Input & Speech-to-Text",
-                    "AI-Generated Flashcards & Study Materials"
+                    "Built for Class 9-10 across Science, Commerce, and Arts",
+                    "Selection-based AI Explain with contextual answers",
+                    "Flashcards generated from highlighted textbook content",
+                    "Formula chart with AI and math explain support",
+                    "Topic/prompt-based infographic generation"
                   ].map((feature, i) => (
                     <li key={i} className="flex items-center gap-2">
                       <span className="h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />

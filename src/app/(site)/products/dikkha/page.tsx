@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowRight, BookOpen, Mic, Sparkles, Brain, ScanText, MessageCircle, GraduationCap, BarChart3, ImageIcon } from "lucide-react"
+import { ArrowRight, BookOpen, Brain, CalendarClock, FileText, ImageIcon, NotebookPen, ScanText, Sparkles, Rocket, WandSparkles } from "lucide-react"
 import { FAQAccordion } from "@/components/ui/FAQAccordion"
 import { Badge } from "@/components/ui/Badge"
 import { Button } from "@/components/ui/Button"
@@ -9,8 +9,9 @@ import { GridPattern } from "@/components/ui/GridPattern"
 import { GlowCard } from "@/components/ui/GlowCard"
 
 export const metadata = {
-  title: "DIKKHA AI - AI Tutor for Class 9 & 10",
-  description: "Your personal AI tutor powered by Agentic RAG. Digital textbooks, voice Q&A, and smart explanations for the NCTB curriculum.",
+  title: "Dikkha AI - Study Assistant for Class 9-10",
+  description:
+    "Dikkha AI is an efficient AI study assistant for all Class 9-10 students in Bangladesh with textbook reading, AI Explain, flashcards, formula support, and infographics.",
 }
 
 export default function DikkhaPage() {
@@ -20,19 +21,32 @@ export default function DikkhaPage() {
       <section className="relative overflow-hidden py-20 md:py-28 section-gradient-light">
         <GridPattern className="opacity-30" />
         <div className="absolute inset-0 -z-10">
-          <div className="absolute top-0 right-1/4 h-96 w-96 rounded-full bg-primary/5 blur-[120px] animate-float-slow" />
+          <div className="absolute top-0 right-1/4 h-96 w-96 rounded-full bg-[#8b38bc]/20 blur-[120px] animate-float-slow" />
+          <div className="absolute bottom-0 left-1/4 h-80 w-80 rounded-full bg-[#b26ed4]/20 blur-[130px] animate-float-slow" style={{ animationDelay: "1.6s" }} />
+          <div className="absolute left-1/2 top-1/3 h-72 w-72 -translate-x-1/2 rounded-full bg-[#8b38bc]/10 blur-[140px]" />
         </div>
         <Container className="relative">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>
-              <Badge className="mb-4">
-                For Class 9 & 10 Students
+              <Badge className="mb-4 border-[#8b38bc]/40 bg-[#8b38bc]/15 text-[#d9b5ed]">
+                For All Class 9-10 Students (Science, Commerce, Arts)
               </Badge>
+              <div className="mb-5 flex items-center gap-4">
+                <img
+                  src="/products/dikkha/dikkha-logo.svg"
+                  alt="Dikkha AI logo"
+                  className="h-14 w-auto rounded-md"
+                />
+                <span className="text-base font-semibold tracking-wide text-muted-foreground uppercase">Dikkha AI</span>
+              </div>
               <h1 className="mb-6 text-4xl font-extrabold tracking-tight sm:text-5xl">
-                Master Your Studies with <span className="text-gradient">DIKKHA</span>
+                The smart study assistant for{" "}
+                <span className="bg-gradient-to-r from-[#a252d0] via-[#c786e0] to-[#8b38bc] bg-clip-text text-transparent">
+                  Class 9-10 success
+                </span>
               </h1>
               <p className="mb-8 text-lg text-muted-foreground leading-relaxed">
-                An AI-powered educational mobile application with digital textbook reader, voice input, and intelligent assistance. Powered by Agentic RAG technology that understands your intent and rewrites queries for the perfect answer.
+                Dikkha AI helps students learn faster with textbook-based AI support. Read NCTB content, select any topic directly from the book, and instantly generate explanations, flashcards, formula help, and visual learning materials.
               </p>
               <div className="flex flex-col gap-3 sm:flex-row">
                 <Button size="lg" variant="glow" asChild>
@@ -44,43 +58,70 @@ export default function DikkhaPage() {
                   <Link href="#features">Learn More</Link>
                 </Button>
               </div>
+              <div className="mt-8 flex flex-wrap gap-2.5">
+                {["Textbook-first AI", "Selection-based workflow", "All Class 9-10 groups"].map((item) => (
+                  <span
+                    key={item}
+                    className="inline-flex items-center rounded-full border border-[#8b38bc]/35 bg-[#8b38bc]/10 px-3 py-1 text-xs font-medium text-[#e8d5f3]"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
             </div>
             <div className="flex items-center justify-center">
-              <div className="device-phone">
-                <div className="flex h-full items-center justify-center pt-8 bg-gradient-to-b from-primary/5 to-transparent">
-                  <div className="text-center">
-                    <span className="block text-6xl mb-3">📚</span>
-                    <span className="text-xs font-bold tracking-widest text-muted-foreground uppercase">Dikkha AI</span>
-                  </div>
+              <div className="relative">
+                <div className="pointer-events-none absolute -left-8 top-10 hidden rounded-xl border border-[#8b38bc]/35 bg-background/90 p-3 text-xs font-medium text-foreground shadow-sm backdrop-blur lg:block">
+                  <span className="inline-flex items-center gap-1.5"><Rocket className="h-3.5 w-3.5 text-[#b26ed4]" /> Fast learning loop</span>
                 </div>
+                <div className="pointer-events-none absolute -right-8 bottom-10 hidden rounded-xl border border-[#8b38bc]/35 bg-background/90 p-3 text-xs font-medium text-foreground shadow-sm backdrop-blur lg:block">
+                  <span className="inline-flex items-center gap-1.5"><WandSparkles className="h-3.5 w-3.5 text-[#b26ed4]" /> AI-assisted revision</span>
+                </div>
+                <div className="device-phone">
+                <div className="h-full overflow-hidden bg-gradient-to-b from-[#8b38bc]/10 to-transparent">
+                  <img
+                    src="/products/dikkha/homepage.jpeg"
+                    alt="Dikkha AI app homepage showing class 9-10 study library"
+                    className="h-full w-full object-cover object-top"
+                  />
+                </div>
+              </div>
               </div>
             </div>
           </div>
         </Container>
       </section>
 
-      {/* Technology Spotlight */}
-      <section className="border-t border-border bg-muted/30 py-20 md:py-28">
+      {/* Positioning */}
+      <section className="relative overflow-hidden border-t border-[#8b38bc]/20 bg-gradient-to-b from-[#1b1322] via-background to-background py-20 md:py-28">
+        <div className="pointer-events-none absolute inset-0 -z-10">
+          <div className="absolute -top-12 left-1/3 h-72 w-72 rounded-full bg-[#8b38bc]/15 blur-[130px]" />
+          <div className="absolute bottom-0 right-1/3 h-64 w-64 rounded-full bg-[#b26ed4]/12 blur-[120px]" />
+        </div>
         <Container>
           <div className="max-w-4xl mx-auto text-center">
-            <Badge className="mb-4">
+            <Badge className="mb-4 border-[#8b38bc]/35 bg-[#8b38bc]/15 text-[#d9b5ed]">
               Powered by Agentic RAG
             </Badge>
             <h2 className="mb-4 text-3xl font-extrabold sm:text-4xl">
-              Smart Intelligence That <span className="text-gradient">Understands You</span>
+              Built for real textbook learning,{" "}
+              <span className="bg-gradient-to-r from-[#a252d0] to-[#c786e0] bg-clip-text text-transparent">
+                not generic chat
+              </span>
             </h2>
             <p className="mb-12 text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-              Our advanced Agentic RAG system goes beyond simple question-answering. It intelligently understands your intent, rewrites queries when needed, and retrieves the perfect answers from NCTB-aligned educational content.
+              Dikkha AI understands student intent, rewrites unclear queries, and answers from curriculum-aligned sources. Every feature is designed around how Class 9-10 students actually study.
             </p>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {[
-                { icon: Brain, title: "Intent Understanding", desc: "Analyzes what you really mean, not just what you type" },
-                { icon: Sparkles, title: "Query Rewriting", desc: "Automatically improves your questions for better results" },
-                { icon: ScanText, title: "Contextual Explanations", desc: "Select any text to get instant, grade-appropriate explanations" },
-                { icon: MessageCircle, title: "Academic Chat Assistant", desc: "Ask any question to our specialized subject tutors" },
+                { icon: Brain, title: "Intent Understanding", desc: "Interprets student intent from selected textbook context and questions." },
+                { icon: Sparkles, title: "Smart Query Rewriting", desc: "Refines unclear prompts before retrieval for better responses." },
+                { icon: ScanText, title: "Selection-Based Learning", desc: "Generate support directly from highlighted textbook portions." },
+                { icon: BookOpen, title: "NCTB Context", desc: "Grounded in class 9-10 learning flow and curriculum language." },
               ].map((item, i) => (
-                <GlowCard key={i} className="p-6 text-center">
-                  <item.icon className="h-6 w-6 mx-auto mb-3 text-primary" />
+                <GlowCard key={i} className="group relative overflow-hidden p-6 text-center border-[#8b38bc]/25 bg-gradient-to-b from-card to-[#8b38bc]/[0.06]">
+                  <div className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#8b38bc]/15 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <item.icon className="h-6 w-6 mx-auto mb-3 text-[#b26ed4]" />
                   <h3 className="text-sm font-semibold text-foreground mb-1">{item.title}</h3>
                   <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
                 </GlowCard>
@@ -90,63 +131,186 @@ export default function DikkhaPage() {
         </Container>
       </section>
 
-      {/* Features */}
-      <section id="features" className="py-20 md:py-28">
+      {/* Visual Feature Stories */}
+      <section id="features" className="relative overflow-hidden py-20 md:py-28">
+        <div className="pointer-events-none absolute inset-0 -z-10">
+          <div className="absolute left-0 top-20 h-80 w-80 rounded-full bg-[#8b38bc]/10 blur-[140px]" />
+          <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-[#b26ed4]/10 blur-[150px]" />
+        </div>
         <Container>
           <SectionHeading
-            title="Why Students Love DIKKHA AI"
-            subtitle="Everything you need to excel in your academic journey."
+            title="What students can do with Dikkha AI"
+            subtitle="A visual walkthrough of the core learning experiences."
             className="mb-14"
           />
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                title: "Digital Textbook Reader",
-                desc: "Access NCTB-aligned educational content in Bangla and English directly in the app. Read chapters, browse subjects, and study at your own pace.",
-                icon: BookOpen
-              },
-              {
-                title: "Drag & Explain Technology",
-                desc: "Stuck on a specific paragraph? Simply drag and select any portion of your textbook chapter. Our AI tutor analyzes the context and provides instant explanations.",
-                icon: ScanText
-              },
-              {
-                title: "24/7 Academic Chat Assistant",
-                desc: "Have a broader question? Chat with our intelligent tutor about any academic topic. It acts as your personal guide for solving problems.",
-                icon: MessageCircle
-              },
-              {
-                title: "Voice-Powered Learning",
-                desc: "Ask questions using speech-to-text functionality in Bangla or English. Perfect for when typing is difficult or you're on the go.",
-                icon: Mic
-              },
-              {
-                title: "Smart Revision Tools",
-                desc: "Generate AI-powered flashcards automatically from your study materials. Organize by subject and topic for efficient revision.",
-                icon: Sparkles
-              }
-            ].map((feature, i) => (
-              <GlowCard key={i} className="p-6">
-                <div className="mb-4 inline-flex rounded-lg bg-primary/10 p-2.5 text-primary">
-                  <feature.icon className="h-5 w-5" />
+          <div className="space-y-8">
+            <GlowCard className="relative overflow-hidden p-6 md:p-8 border-[#8b38bc]/25 bg-gradient-to-br from-card to-[#8b38bc]/[0.06]">
+              <div className="absolute right-5 top-5 rounded-full border border-[#8b38bc]/30 bg-[#8b38bc]/10 px-2.5 py-0.5 text-[10px] font-semibold tracking-wide text-[#c786e0]">01</div>
+              <div className="mb-6 flex items-center gap-3">
+                <div className="inline-flex rounded-lg bg-[#8b38bc]/15 p-2.5 text-[#c786e0]">
+                  <BookOpen className="h-5 w-5" />
                 </div>
-                <h3 className="mb-2 text-lg font-semibold text-foreground">{feature.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{feature.desc}</p>
+                <h3 className="text-xl font-semibold text-foreground">App homepage and subject library</h3>
+              </div>
+              <p className="mb-6 text-sm text-muted-foreground leading-relaxed">
+                Students can start from a structured library, pick subjects quickly, and continue learning from where they left off.
+              </p>
+              <div className="flex justify-center">
+                <div className="w-full max-w-[250px] rounded-2xl border border-border bg-card p-2 shadow-sm">
+                  <div className="overflow-hidden rounded-xl border border-border/60">
+                    <img
+                      src="/products/dikkha/homepage.jpeg"
+                      alt="Dikkha AI homepage with class 9-10 subject cards"
+                      className="h-auto w-full object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+            </GlowCard>
+
+            <GlowCard className="relative overflow-hidden p-6 md:p-8 border-[#8b38bc]/25 bg-gradient-to-br from-card to-[#8b38bc]/[0.06]">
+              <div className="absolute right-5 top-5 rounded-full border border-[#8b38bc]/30 bg-[#8b38bc]/10 px-2.5 py-0.5 text-[10px] font-semibold tracking-wide text-[#c786e0]">02</div>
+              <div className="mb-6 flex items-center gap-3">
+                <div className="inline-flex rounded-lg bg-[#8b38bc]/15 p-2.5 text-[#c786e0]">
+                  <ScanText className="h-5 w-5" />
+                </div>
+                <h3 className="text-xl font-semibold text-foreground">AI Explain from selected textbook text</h3>
+              </div>
+              <p className="mb-6 text-sm text-muted-foreground leading-relaxed">
+                Students drag-highlight a difficult section from an NCTB chapter and use AI Explain to get clearer, context-aware explanations in seconds.
+              </p>
+              <div className="grid gap-6 sm:grid-cols-2">
+                <div className="mx-auto w-full max-w-[240px]">
+                  <p className="mb-2 text-center text-xs font-medium text-muted-foreground uppercase tracking-wide">Selection</p>
+                  <div className="rounded-2xl border border-border bg-card p-2 shadow-sm">
+                    <div className="overflow-hidden rounded-xl border border-border/60">
+                      <img
+                        src="/products/dikkha/ai-explain-page.jpeg"
+                        alt="Dikkha AI explain selection flow"
+                        className="h-auto w-full object-cover"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="mx-auto w-full max-w-[240px]">
+                  <p className="mb-2 text-center text-xs font-medium text-muted-foreground uppercase tracking-wide">Answer</p>
+                  <div className="rounded-2xl border border-border bg-card p-2 shadow-sm">
+                    <div className="overflow-hidden rounded-xl border border-border/60">
+                      <img
+                        src="/products/dikkha/ai-explain-answer.jpeg"
+                        alt="Dikkha AI explain answer output"
+                        className="h-auto w-full object-cover"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </GlowCard>
+
+            <GlowCard className="relative overflow-hidden p-6 md:p-8 border-[#8b38bc]/25 bg-gradient-to-br from-card to-[#8b38bc]/[0.06]">
+              <div className="absolute right-5 top-5 rounded-full border border-[#8b38bc]/30 bg-[#8b38bc]/10 px-2.5 py-0.5 text-[10px] font-semibold tracking-wide text-[#c786e0]">03</div>
+              <div className="mb-6 flex items-center gap-3">
+                <div className="inline-flex rounded-lg bg-[#8b38bc]/15 p-2.5 text-[#c786e0]">
+                  <Sparkles className="h-5 w-5" />
+                </div>
+                <h3 className="text-xl font-semibold text-foreground">Flashcards from selected content</h3>
+              </div>
+              <p className="mb-6 text-sm text-muted-foreground leading-relaxed">
+                The same highlighted text can instantly become revision-ready flashcards, helping students move from reading to active recall.
+              </p>
+              <div className="grid gap-6 sm:grid-cols-2">
+                <div className="mx-auto w-full max-w-[240px]">
+                  <p className="mb-2 text-center text-xs font-medium text-muted-foreground uppercase tracking-wide">Question</p>
+                  <div className="rounded-2xl border border-border bg-card p-2 shadow-sm">
+                    <div className="overflow-hidden rounded-xl border border-border/60">
+                      <img
+                        src="/products/dikkha/flashcard-ques.jpeg"
+                        alt="Dikkha AI flashcard question view"
+                        className="h-auto w-full object-cover"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="mx-auto w-full max-w-[240px]">
+                  <p className="mb-2 text-center text-xs font-medium text-muted-foreground uppercase tracking-wide">Answer</p>
+                  <div className="rounded-2xl border border-border bg-card p-2 shadow-sm">
+                    <div className="overflow-hidden rounded-xl border border-border/60">
+                      <img
+                        src="/products/dikkha/flashcard-answer.jpeg"
+                        alt="Dikkha AI flashcard answer view"
+                        className="h-auto w-full object-cover"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </GlowCard>
+
+            <div className="grid gap-8 lg:grid-cols-2">
+              <GlowCard className="relative overflow-hidden p-6 md:p-8 border-[#8b38bc]/25 bg-gradient-to-br from-card to-[#8b38bc]/[0.06]">
+                <div className="absolute right-5 top-5 rounded-full border border-[#8b38bc]/30 bg-[#8b38bc]/10 px-2.5 py-0.5 text-[10px] font-semibold tracking-wide text-[#c786e0]">04</div>
+                <div className="mb-6 flex items-center gap-3">
+                  <div className="inline-flex rounded-lg bg-[#8b38bc]/15 p-2.5 text-[#c786e0]">
+                    <FileText className="h-5 w-5" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-foreground">Formula chart + explain support</h3>
+                </div>
+                <p className="mb-6 text-sm text-muted-foreground leading-relaxed">
+                  Formula mode collects formulas from book content so students can revise fast, then use AI Explain and math-focused clarification when needed.
+                </p>
+                <div className="flex justify-center">
+                  <div className="w-full max-w-[250px] rounded-2xl border border-border bg-card p-2 shadow-sm">
+                    <div className="overflow-hidden rounded-xl border border-border/60">
+                      <img
+                        src="/products/dikkha/formula-page.jpeg"
+                        alt="Dikkha AI formula chart and explain interface"
+                        className="h-auto w-full object-cover"
+                      />
+                    </div>
+                  </div>
+                </div>
               </GlowCard>
-            ))}
+
+              <GlowCard className="relative overflow-hidden p-6 md:p-8 border-[#8b38bc]/25 bg-gradient-to-br from-card to-[#8b38bc]/[0.06]">
+                <div className="absolute right-5 top-5 rounded-full border border-[#8b38bc]/30 bg-[#8b38bc]/10 px-2.5 py-0.5 text-[10px] font-semibold tracking-wide text-[#c786e0]">05</div>
+                <div className="mb-6 flex items-center gap-3">
+                  <div className="inline-flex rounded-lg bg-[#8b38bc]/15 p-2.5 text-[#c786e0]">
+                    <ImageIcon className="h-5 w-5" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-foreground">Infographics generation</h3>
+                </div>
+                <p className="mb-6 text-sm text-muted-foreground leading-relaxed">
+                  Students can choose topics, pick suggested prompts, or write custom prompts to generate high-quality infographic visuals for quick understanding.
+                </p>
+                <div className="flex justify-center">
+                  <div className="w-full max-w-[250px] rounded-2xl border border-border bg-card p-2 shadow-sm">
+                    <div className="overflow-hidden rounded-xl border border-border/60">
+                      <img
+                        src="/products/dikkha/infographics-page.jpeg"
+                        alt="Dikkha AI infographic generation result"
+                        className="h-auto w-full object-cover"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </GlowCard>
+            </div>
           </div>
         </Container>
       </section>
 
       {/* How it Works */}
-      <section className="border-t border-border bg-muted/30 py-20 md:py-28">
+      <section className="relative overflow-hidden border-t border-[#8b38bc]/20 bg-gradient-to-b from-background via-[#1a1220] to-background py-20 md:py-28">
+        <div className="pointer-events-none absolute inset-0 -z-10">
+          <div className="absolute top-0 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-[#8b38bc]/12 blur-[140px]" />
+        </div>
         <Container>
           <SectionHeading title="How It Works" className="mb-14" />
           <div className="grid gap-8 md:grid-cols-3">
             {[
-              { step: "01", title: "Sign Up", desc: "Create your account with your phone number. Select your class (9 or 10), group (Science, Commerce, or Humanities), and education board." },
-              { step: "02", title: "Read & Ask", desc: "Browse digital textbooks or select text for explanations. Ask questions via text or voice. Our Agentic RAG understands your intent and finds the perfect answer." },
-              { step: "03", title: "Study & Revise", desc: "Generate flashcards from your study materials, organize chat sessions by subject, and track your reading progress across chapters." }
+              { step: "01", title: "Read from your book", desc: "Open chapter content and focus on the exact line or paragraph you need to understand." },
+              { step: "02", title: "Choose a learning action", desc: "Use AI Explain, Flashcards, Formula tools, or Infographics directly from selected text or prompts." },
+              { step: "03", title: "Revise smarter", desc: "Review answers, save key outputs, and revisit difficult topics with a structured study flow." }
             ].map((item, i) => (
               <div key={i} className="relative">
                 {i < 2 && (
@@ -165,42 +329,46 @@ export default function DikkhaPage() {
         </Container>
       </section>
 
-      {/* Coming Soon */}
-      <section className="py-20 md:py-28">
+      {/* Roadmap */}
+      <section className="relative overflow-hidden py-20 md:py-28">
+        <div className="pointer-events-none absolute inset-0 -z-10">
+          <div className="absolute -top-10 right-1/4 h-72 w-72 rounded-full bg-[#8b38bc]/12 blur-[130px]" />
+          <div className="absolute bottom-0 left-1/4 h-64 w-64 rounded-full bg-[#b26ed4]/10 blur-[120px]" />
+        </div>
         <Container>
           <SectionHeading
-            title="Coming Soon"
-            subtitle="Exciting features we're building to enhance your learning experience."
+            title="Future updates"
+            subtitle="Major features planned to make Dikkha AI an even stronger study ecosystem."
             className="mb-14"
           />
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {[
               {
-                title: "Graphical Animation Learning",
-                desc: "Visual animations and interactive graphics to help you understand complex concepts better.",
-                icon: GraduationCap
+                title: "Board Question Bank Solver",
+                desc: "Practice from board-style question banks and get guided solving support with explanations.",
+                icon: BookOpen
               },
               {
-                title: "Chapter & Topic-wise Quizzes",
-                desc: "Automated quizzes organized by chapters and topics to test your understanding and prepare for exams.",
-                icon: BarChart3
+                title: "AI Study Planner",
+                desc: "Generate personalized study schedules based on chapter load, exam date, and weak areas.",
+                icon: CalendarClock
               },
               {
-                title: "Infographic Generation",
-                desc: "AI-generated visual summaries and infographics from your study materials for quick revision.",
-                icon: ImageIcon
+                title: "Smart Note-taker",
+                desc: "Capture, organize, and summarize notes from textbook content and AI sessions automatically.",
+                icon: NotebookPen
               },
               {
-                title: "Personal Assessment Dashboard",
-                desc: "Comprehensive analytics showing your strengths, weaknesses, and progress across all subjects.",
-                icon: BarChart3
+                title: "And more",
+                desc: "Ongoing improvements across revision workflows, exam prep, and student productivity tools.",
+                icon: Sparkles
               }
             ].map((feature, i) => (
-              <div key={i} className="rounded-xl border border-dashed border-primary/20 bg-card/50 p-6 transition-all duration-300 hover:border-primary/40 hover:shadow-sm">
-                <div className="mb-4 inline-flex rounded-lg bg-muted p-2.5 text-muted-foreground">
+              <div key={i} className="rounded-xl border border-dashed border-[#8b38bc]/30 bg-gradient-to-br from-card to-[#8b38bc]/[0.04] p-6 transition-all duration-300 hover:border-[#b26ed4]/50 hover:shadow-sm">
+                <div className="mb-4 inline-flex rounded-lg bg-[#8b38bc]/15 p-2.5 text-[#c786e0]">
                   <feature.icon className="h-5 w-5" />
                 </div>
-                <Badge variant="secondary" className="mb-2 text-xs">Coming Soon</Badge>
+                <Badge variant="secondary" className="mb-2 text-xs border-[#8b38bc]/30 bg-[#8b38bc]/15 text-[#d9b5ed]">Coming Soon</Badge>
                 <h3 className="mb-2 text-base font-semibold text-foreground">{feature.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{feature.desc}</p>
               </div>
@@ -210,34 +378,30 @@ export default function DikkhaPage() {
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="border-t border-border bg-muted/30 py-20 md:py-28">
+      <section id="faq" className="border-t border-[#8b38bc]/20 bg-gradient-to-b from-[#1a1220] to-background py-20 md:py-28">
         <Container className="max-w-3xl">
           <SectionHeading title="Frequently Asked Questions" className="mb-12" />
           <FAQAccordion
             items={[
               {
                 question: "Who can use Dikkha AI?",
-                answer: "Dikkha AI is designed for Class 9 and Class 10 students in Bangladesh. The app supports all study groups: Science, Commerce, and Humanities. Users must be at least 13 years old, and those under 18 should use the app under parental supervision."
+                answer: "Dikkha AI is designed for all Class 9-10 students in Bangladesh across Science, Commerce, and Arts/Humanities groups."
               },
               {
-                question: "Is the content aligned with the Bangladeshi curriculum?",
-                answer: "Yes! All educational content is aligned with the NCTB (National Curriculum and Textbook Board) curriculum. The digital textbooks and AI responses are specifically tailored for Class 9-10 students following the Bangladesh National Curriculum."
+                question: "How does AI Explain work?",
+                answer: "Students can drag-highlight a specific section of textbook content and request AI Explain. The system uses context-aware retrieval and response generation to provide clearer, student-friendly explanations."
               },
               {
-                question: "How does the Agentic RAG technology work?",
-                answer: "Our Agentic RAG (Retrieval-Augmented Generation) system intelligently understands your questions, rewrites them when needed for better clarity, and retrieves accurate answers from NCTB-aligned textbooks. This ensures you get contextually relevant and educationally sound responses every time."
+                question: "Can students generate revision materials automatically?",
+                answer: "Yes. Dikkha AI can generate flashcards from selected content, provide formula-focused study support, and create infographic-style outputs for faster revision."
               },
               {
-                question: "What information do you collect?",
-                answer: "We collect your phone number for account creation, your name, educational information (grade, group, board), and chat conversations. We also track reading progress and app usage. All data is handled according to our Privacy Policy. You can delete your account and all associated data at any time through the Profile section."
+                question: "Is this only for science students?",
+                answer: "No. Dikkha AI supports Class 9-10 students from all major study groups. The product is positioned as a complete study assistant, not a science-only tool."
               },
               {
-                question: "Can I use voice input?",
-                answer: "Yes! Dikkha AI supports speech-to-text functionality. You can ask questions using voice commands in Bangla or English. Voice recordings are processed locally and not stored on our servers."
-              },
-              {
-                question: "Is my data secure?",
-                answer: "Absolutely. We use Firebase for secure authentication and data storage. All data transmission is encrypted using HTTPS/TLS. Your chat conversations are stored securely and can be deleted at any time. Please review our Privacy Policy for complete details."
+                question: "Why use Dikkha AI instead of a generic AI chatbot?",
+                answer: "Dikkha AI is built around textbook-first flows for Class 9-10. It combines selection-based actions, educational context, and structured revision tools that generic chat tools usually do not provide."
               }
             ]}
           />
@@ -247,11 +411,15 @@ export default function DikkhaPage() {
       {/* CTA */}
       <section className="py-20 md:py-28">
         <Container>
-          <div className="cta-dark relative overflow-hidden rounded-2xl px-6 py-16 text-center max-w-3xl mx-auto border border-white/[0.08]">
+          <div className="relative overflow-hidden rounded-2xl px-6 py-16 text-center max-w-3xl mx-auto border border-[#b26ed4]/35 bg-gradient-to-br from-[#251530] via-[#1e1426] to-[#120b17]">
             <GridPattern className="opacity-[0.06] fill-white" />
+            <div className="pointer-events-none absolute inset-0">
+              <div className="absolute left-0 top-0 h-40 w-40 rounded-full bg-[#8b38bc]/25 blur-[90px]" />
+              <div className="absolute bottom-0 right-0 h-52 w-52 rounded-full bg-[#b26ed4]/20 blur-[110px]" />
+            </div>
             <div className="relative">
-              <h2 className="mb-4 text-3xl font-extrabold sm:text-4xl text-white">Ready to boost your grades?</h2>
-              <p className="mb-8 text-lg text-zinc-400">Join students learning smarter with Dikkha AI. Get early access to the future of education.</p>
+              <h2 className="mb-4 text-3xl font-extrabold sm:text-4xl text-white">Ready to study smarter with Dikkha AI?</h2>
+              <p className="mb-8 text-lg text-zinc-400">Bring AI Explain, flashcards, formula help, and infographics into one practical Class 9-10 learning workflow.</p>
               <Button size="lg" variant="glow" asChild>
                 <Link href="/contact?subject=Dikkha%20AI%20Early%20Access" className="flex items-center gap-2">
                   Get Early Access <ArrowRight className="h-4 w-4" />

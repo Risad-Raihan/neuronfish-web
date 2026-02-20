@@ -114,10 +114,13 @@ export default function HomePage() {
               <GlowCard className="flex flex-col h-full overflow-hidden">
                 <div className="relative h-48 bg-gradient-to-br from-primary/5 to-primary/15 flex items-center justify-center">
                   <div className="device-phone scale-[0.4] origin-center">
-                    <div className="flex h-full items-center justify-center pt-8">
-                      <div className="text-center">
-                        <span className="block text-4xl mb-2">📚</span>
-                        <span className="text-xs font-bold tracking-widest text-muted-foreground uppercase">Dikkha AI</span>
+                    <div className="flex h-full items-center justify-center bg-gradient-to-b from-[#8b38bc]/10 via-[#8b38bc]/5 to-transparent">
+                      <div className="rounded-xl border border-[#8b38bc]/30 bg-background/70 p-4 shadow-sm backdrop-blur">
+                        <img
+                          src="/products/dikkha/dikkha-logo.svg"
+                          alt="Dikkha AI logo"
+                          className="h-16 w-auto"
+                        />
                       </div>
                     </div>
                   </div>
@@ -127,9 +130,17 @@ export default function HomePage() {
                     <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">Education</span>
                     <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">AI</span>
                   </div>
+                  <div className="mb-4 flex items-center gap-2">
+                    <img
+                      src="/products/dikkha/dikkha-logo.svg"
+                      alt="Dikkha AI logo"
+                      className="h-6 w-6 rounded"
+                    />
+                    <span className="text-xs font-semibold tracking-wide text-muted-foreground uppercase">Class 9-10 focused</span>
+                  </div>
                   <h3 className="text-2xl font-semibold tracking-tight text-foreground">Dikkha AI</h3>
                   <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                    Agentic AI study companion with digital textbooks, drag-to-explain, and generalized chat for Class 9 & 10 students.
+                    AI study assistant for all Class 9-10 groups with textbook-based AI Explain, flashcards, formula support, and infographic learning.
                   </p>
                   <div className="mt-auto pt-6">
                     <Button asChild className="w-full group/btn">

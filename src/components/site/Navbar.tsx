@@ -3,51 +3,11 @@
 import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { useTheme } from "next-themes"
-import { Menu, X, Sun, Moon, Monitor } from "lucide-react"
+import { Menu, X } from "lucide-react"
 
 import { Button } from "@/components/ui/Button"
 import { Container } from "@/components/ui/Container"
 import { cn } from "@/lib/utils"
-
-function ThemeToggle() {
-  const [mounted, setMounted] = React.useState(false)
-  const { resolvedTheme, setTheme } = useTheme()
-
-  React.useEffect(() => setMounted(true), [])
-
-  const toggleTheme = React.useCallback(() => {
-    const root = document.documentElement
-    root.classList.add("theme-transition")
-    setTheme(resolvedTheme === "dark" ? "light" : "dark")
-    const timeout = setTimeout(() => root.classList.remove("theme-transition"), 350)
-    return () => clearTimeout(timeout)
-  }, [resolvedTheme, setTheme])
-
-  if (!mounted) {
-    return (
-      <Button variant="ghost" size="icon" className="h-9 w-9" disabled>
-        <Monitor className="h-4 w-4 text-muted-foreground" />
-      </Button>
-    )
-  }
-
-  return (
-    <Button
-      variant="ghost"
-      size="icon"
-      aria-label={`Switch to ${resolvedTheme === "dark" ? "light" : "dark"} mode`}
-      onClick={toggleTheme}
-      className="h-9 w-9"
-    >
-      {resolvedTheme === "dark" ? (
-        <Sun className="h-4 w-4" />
-      ) : (
-        <Moon className="h-4 w-4" />
-      )}
-    </Button>
-  )
-}
 
 export function Navbar() {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -68,6 +28,11 @@ export function Navbar() {
       <Container>
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-2" onClick={closeMenu}>
+            <img
+              src="/neuronfish-logo.jpeg"
+              alt="NeuronFish logo"
+              className="h-8 w-8 rounded-md border border-border/60 object-cover shadow-sm"
+            />
             <span className="text-xl font-extrabold tracking-tight text-foreground">
               NeuronFish
             </span>
@@ -91,8 +56,6 @@ export function Navbar() {
           </nav>
 
           <div className="flex items-center gap-2">
-            <ThemeToggle />
-
             <Button asChild variant="default" size="sm" className="hidden md:inline-flex">
               <Link href="/products">Get Started</Link>
             </Button>

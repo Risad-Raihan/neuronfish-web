@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, BarChart3, Calculator, GraduationCap, Handshake, Plane } from "lucide-react"
 import { Button } from "@/components/ui/Button"
 import { Container } from "@/components/ui/Container"
 import { SectionHeading } from "@/components/ui/SectionHeading"
@@ -29,18 +29,20 @@ export default function ProductsPage() {
             <GlowCard className="flex flex-col overflow-hidden">
               <div className="relative h-52 bg-gradient-to-br from-primary/5 to-primary/15 flex items-center justify-center">
                 <div className="device-phone scale-[0.38] origin-center">
-                  <div className="h-full overflow-hidden">
-                    <img
-                      src="/products/dikkha/homepage.jpeg"
-                      alt="Dikkha AI app homepage"
-                      className="h-full w-full object-cover object-top"
-                    />
+                  <div className="flex h-full items-center justify-center bg-gradient-to-b from-[#8b38bc]/10 via-[#8b38bc]/5 to-transparent">
+                    <div className="rounded-xl border border-[#8b38bc]/30 bg-background/70 p-4 shadow-sm backdrop-blur">
+                      <img
+                        src="/products/dikkha/dikkha-logo.svg"
+                        alt="Dikkha AI logo"
+                        className="h-16 w-auto"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
               <div className="flex flex-1 flex-col p-8">
                 <div className="mb-3">
-                  <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
+                  <span className="inline-flex items-center rounded-full bg-[#8b38bc]/12 px-2.5 py-0.5 text-xs font-medium text-[#c786e0]">
                     Education
                   </span>
                 </div>
@@ -65,13 +67,16 @@ export default function ProductsPage() {
                     "Topic/prompt-based infographic generation"
                   ].map((feature, i) => (
                     <li key={i} className="flex items-center gap-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#8b38bc] flex-shrink-0" />
                       {feature}
                     </li>
                   ))}
                 </ul>
                 <div className="mt-auto pt-4">
-                  <Button asChild className="w-full sm:w-auto group/btn">
+                  <Button
+                    asChild
+                    className="w-full sm:w-auto group/btn bg-[#8b38bc] text-white hover:bg-[#7b2ea8]"
+                  >
                     <Link href="/products/dikkha" className="flex items-center gap-2">
                       View Details <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                     </Link>
@@ -115,7 +120,10 @@ export default function ProductsPage() {
                   ))}
                 </ul>
                 <div className="mt-auto pt-4">
-                  <Button asChild className="w-full sm:w-auto group/btn">
+                  <Button
+                    asChild
+                    className="w-full sm:w-auto group/btn bg-[#4C8E4F] text-white hover:bg-[#417a43]"
+                  >
                     <Link href="/products/chhar" className="flex items-center gap-2">
                       View Details <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                     </Link>
@@ -127,45 +135,66 @@ export default function ProductsPage() {
         </Container>
       </section>
 
-      {/* Comparison Table */}
+      {/* Upcoming Products */}
       <section className="py-16 md:py-24">
         <Container>
-          <GlowCard className="p-8">
-            <h3 className="mb-6 text-lg font-semibold text-foreground">Quick Comparison</h3>
-            <div className="overflow-x-auto">
-              <table className="w-full min-w-[500px] text-left text-sm">
-                <thead>
-                  <tr className="border-b border-border">
-                    <th className="pb-3 font-medium text-muted-foreground">Feature</th>
-                    <th className="pb-3 font-semibold text-foreground">Dikkha AI</th>
-                    <th className="pb-3 font-semibold text-foreground">CHHAR</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-border">
-                  <tr>
-                    <td className="py-3 text-muted-foreground">Core Technology</td>
-                    <td className="py-3 text-foreground">Agentic RAG (Retrieval-Augmented Generation)</td>
-                    <td className="py-3 text-foreground">Geolocation & Recommendation Engine</td>
-                  </tr>
-                  <tr>
-                    <td className="py-3 text-muted-foreground">Target Audience</td>
-                    <td className="py-3 text-foreground">Students (Class 9-10, all groups)</td>
-                    <td className="py-3 text-foreground">Shoppers & Diners in Dhaka</td>
-                  </tr>
-                  <tr>
-                    <td className="py-3 text-muted-foreground">Platform</td>
-                    <td className="py-3 text-foreground">Mobile App (Android/iOS)</td>
-                    <td className="py-3 text-foreground">Mobile App (iOS/Android)</td>
-                  </tr>
-                  <tr>
-                    <td className="py-3 text-muted-foreground">Key Features</td>
-                    <td className="py-3 text-foreground">Drag & Explain, Generalized Chat, Digital Textbooks, Voice Q&A</td>
-                    <td className="py-3 text-foreground">Location-based Deals, Real-time Alerts</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </GlowCard>
+          <SectionHeading
+            title="Upcoming Products"
+            subtitle="Five new AI products currently in planning and development."
+            className="mb-10"
+          />
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+            {[
+              {
+                title: "Dhara",
+                desc: "Trusted booking service specifically designed for NGO facilities.",
+                icon: Handshake,
+                image: "/products/Dhara_placeholder.jpeg",
+              },
+              {
+                title: "Tax Assistant",
+                desc: "AI-powered personal and business tax assistant for Bangladesh.",
+                icon: Calculator,
+                image: "/products/Tax-assistant-placeholder.jpeg",
+              },
+              {
+                title: "Study Abroad Assistant",
+                desc: "AI + curated university, scholarship, and visa processing assistant for Bangladeshi students.",
+                icon: GraduationCap,
+                image: "/products/study-abroad-placeholder.jpeg",
+              },
+              {
+                title: "Travel Partner",
+                desc: "AI-powered domestic and international travel planning assistant for Bangladeshi travelers.",
+                icon: Plane,
+                image: "/products/travel-partner-placeholder.jpeg",
+              },
+              {
+                title: "Human Language Analyst",
+                desc: "Natural-language SQL retrieval with advanced analytics, charting, and graphical explanations.",
+                icon: BarChart3,
+                image: "/products/human-language-placeholder.jpeg",
+              },
+            ].map((product, i) => (
+              <GlowCard key={i} className="p-5">
+                <div className="mb-3 flex items-center justify-between">
+                  <span className="inline-flex items-center rounded-full bg-primary/10 px-2 py-0.5 text-[11px] font-medium text-primary">
+                    Upcoming
+                  </span>
+                  <product.icon className="h-4 w-4 text-primary" />
+                </div>
+                <div className="mb-3 h-16 overflow-hidden rounded-lg border border-border bg-muted/40">
+                  <img
+                    src={product.image}
+                    alt={`${product.title} placeholder visual`}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <h3 className="mb-2 text-base font-semibold text-foreground">{product.title}</h3>
+                <p className="text-xs leading-relaxed text-muted-foreground">{product.desc}</p>
+              </GlowCard>
+            ))}
+          </div>
         </Container>
       </section>
     </>

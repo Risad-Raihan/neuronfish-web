@@ -49,7 +49,12 @@ export default function DikkhaPage() {
                 Dikkha AI helps students learn faster with textbook-based AI support. Read NCTB content, select any topic directly from the book, and instantly generate explanations, flashcards, formula help, and visual learning materials.
               </p>
               <div className="flex flex-col gap-3 sm:flex-row">
-                <Button size="lg" variant="glow" asChild>
+                <Button
+                  size="lg"
+                  variant="glow"
+                  className="bg-[#8b38bc] text-white hover:bg-[#7b2ea8]"
+                  asChild
+                >
                   <Link href="/contact?subject=DIKKHA%20AI%20Early%20Access">
                     Get Early Access
                   </Link>
@@ -314,10 +319,10 @@ export default function DikkhaPage() {
             ].map((item, i) => (
               <div key={i} className="relative">
                 {i < 2 && (
-                  <div className="hidden md:block absolute top-8 left-[calc(50%+32px)] w-[calc(100%-64px)] h-px bg-gradient-to-r from-primary/30 to-transparent" />
+                  <div className="hidden md:block absolute top-8 left-[calc(50%+32px)] w-[calc(100%-64px)] h-px bg-gradient-to-r from-[#8b38bc]/30 to-transparent" />
                 )}
                 <GlowCard className="flex flex-col items-center text-center p-8">
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-lg font-extrabold text-primary">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#8b38bc]/12 text-lg font-extrabold text-[#b26ed4]">
                     {item.step}
                   </div>
                   <h3 className="mb-2 text-base font-semibold text-foreground">{item.title}</h3>
@@ -420,7 +425,12 @@ export default function DikkhaPage() {
             <div className="relative">
               <h2 className="mb-4 text-3xl font-extrabold sm:text-4xl text-white">Ready to study smarter with Dikkha AI?</h2>
               <p className="mb-8 text-lg text-zinc-400">Bring AI Explain, flashcards, formula help, and infographics into one practical Class 9-10 learning workflow.</p>
-              <Button size="lg" variant="glow" asChild>
+              <Button
+                size="lg"
+                variant="glow"
+                className="bg-[#8b38bc] text-white hover:bg-[#7b2ea8]"
+                asChild
+              >
                 <Link href="/contact?subject=Dikkha%20AI%20Early%20Access" className="flex items-center gap-2">
                   Get Early Access <ArrowRight className="h-4 w-4" />
                 </Link>

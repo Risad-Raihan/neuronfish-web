@@ -6,7 +6,6 @@ import { motion } from "motion/react"
 import { Button } from "@/components/ui/Button"
 import { Container } from "@/components/ui/Container"
 import { SectionHeading } from "@/components/ui/SectionHeading"
-import { ProductCard } from "@/components/site/ProductCard"
 import { TeamCard } from "@/components/site/TeamCard"
 import { AnimateOnScroll, StaggerContainer, StaggerItem } from "@/components/ui/AnimateOnScroll"
 import { GridPattern } from "@/components/ui/GridPattern"
@@ -17,12 +16,21 @@ export default function HomePage() {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden py-28 md:py-36 lg:py-44 section-gradient-light">
-        <GridPattern className="opacity-40" />
+      <section className="relative overflow-hidden py-28 md:py-36 lg:py-44">
+        <div className="absolute inset-0 -z-20">
+          <img
+            src="/hero.jpg"
+            alt="Abstract AI network background"
+            className="h-full w-full object-cover"
+          />
+        </div>
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/55 via-black/55 to-background" />
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_70%_55%_at_50%_12%,rgba(76,142,79,0.22),transparent)]" />
+        <GridPattern className="opacity-25" />
 
         <div className="absolute inset-0 -z-10 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 h-[420px] w-[420px] rounded-full bg-primary/5 blur-[120px] animate-float-slow" />
-          <div className="absolute bottom-1/4 right-1/4 h-[320px] w-[320px] rounded-full bg-orange-400/4 blur-[100px] animate-float-slow" style={{ animationDelay: "3s" }} />
+          <div className="absolute top-1/4 left-1/4 h-[420px] w-[420px] rounded-full bg-[#4C8E4F]/25 blur-[120px] animate-float-slow" />
+          <div className="absolute bottom-1/4 right-1/4 h-[320px] w-[320px] rounded-full bg-cyan-400/10 blur-[100px] animate-float-slow" style={{ animationDelay: "3s" }} />
         </div>
 
         <Container className="relative flex flex-col items-center text-center">
@@ -30,9 +38,9 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center rounded-full border border-border bg-background/80 backdrop-blur-sm px-4 py-1.5 text-sm text-muted-foreground mb-8"
+            className="mb-8 inline-flex items-center rounded-full border border-white/25 bg-black/35 px-4 py-1.5 text-sm text-zinc-200 backdrop-blur-sm"
           >
-            <span className="mr-2 h-2 w-2 rounded-full bg-primary animate-gentle-pulse" />
+            <span className="mr-2 h-2 w-2 rounded-full bg-[#4C8E4F] animate-gentle-pulse" />
             Innovating from Bangladesh
           </motion.div>
 
@@ -40,20 +48,21 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="max-w-4xl text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl text-foreground"
+            className="max-w-4xl text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl"
           >
-            We build apps that{" "}
-            <span className="text-gradient">millions love</span>
+            Building agentic AI solutions{" "}
+            <span className="bg-gradient-to-r from-[#5ea061] via-[#80bf82] to-[#4C8E4F] bg-clip-text text-transparent">
+              & next-gen apps
+            </span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl leading-relaxed"
+            className="mt-6 max-w-3xl text-lg leading-relaxed text-zinc-200 md:text-xl"
           >
-            From AI-powered education to location-based savings — we create products
-            that solve real problems for real people.
+            Creating powerful AI agents, smart applications, and innovative solutions tailored for Bangladesh. Experience the future with NeuronFish.
           </motion.p>
 
           <motion.div
@@ -71,31 +80,6 @@ export default function HomePage() {
               <Link href="/contact">Contact Us</Link>
             </Button>
           </motion.div>
-        </Container>
-      </section>
-
-      {/* ── Stats Strip ── */}
-      <section className="border-y border-border bg-muted/40">
-        <Container>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-0 sm:divide-x divide-border py-8 sm:py-6">
-            {[
-              { value: "2", label: "Products" },
-              { value: "4", label: "Engineers" },
-              { value: "🇧🇩", label: "Made in BD" },
-            ].map((stat, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="flex items-center gap-2 sm:px-10 text-center"
-              >
-                <span className="text-2xl font-extrabold text-foreground">{stat.value}</span>
-                <span className="text-sm text-muted-foreground">{stat.label}</span>
-              </motion.div>
-            ))}
-          </div>
         </Container>
       </section>
 
@@ -127,8 +111,8 @@ export default function HomePage() {
                 </div>
                 <div className="flex flex-1 flex-col p-6">
                   <div className="mb-3 flex flex-wrap gap-2">
-                    <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">Education</span>
-                    <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">AI</span>
+                    <span className="inline-flex items-center rounded-full bg-[#8b38bc]/12 px-2.5 py-0.5 text-xs font-medium text-[#c786e0]">Education</span>
+                    <span className="inline-flex items-center rounded-full bg-[#8b38bc]/12 px-2.5 py-0.5 text-xs font-medium text-[#c786e0]">AI</span>
                   </div>
                   <div className="mb-4 flex items-center gap-2">
                     <img
@@ -143,7 +127,10 @@ export default function HomePage() {
                     AI study assistant for all Class 9-10 groups with textbook-based AI Explain, flashcards, formula support, and infographic learning.
                   </p>
                   <div className="mt-auto pt-6">
-                    <Button asChild className="w-full group/btn">
+                    <Button
+                      asChild
+                      className="w-full group/btn bg-[#8b38bc] text-white hover:bg-[#7b2ea8]"
+                    >
                       <Link href="/products/dikkha" className="flex items-center gap-2">
                         Discover Dikkha AI
                         <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
@@ -176,7 +163,10 @@ export default function HomePage() {
                     Location-based discounts and promotions app focused on Dhaka. Find deals near you instantly.
                   </p>
                   <div className="mt-auto pt-6">
-                    <Button asChild className="w-full group/btn">
+                    <Button
+                      asChild
+                      className="w-full group/btn bg-[#4C8E4F] text-white hover:bg-[#417a43]"
+                    >
                       <Link href="/products/chhar" className="flex items-center gap-2">
                         Explore CHHAR
                         <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
@@ -276,7 +266,7 @@ export default function HomePage() {
             </AnimateOnScroll>
 
             <AnimateOnScroll delay={150}>
-              <div className="relative rounded-2xl border border-border bg-gradient-to-br from-primary/5 to-orange-500/5 p-10 flex flex-col items-center justify-center text-center overflow-hidden">
+              <div className="relative rounded-2xl border border-border bg-gradient-to-br from-primary/5 to-primary/15 p-10 flex flex-col items-center justify-center text-center overflow-hidden">
                 <div className="mb-6 text-6xl md:text-7xl">
                   🇧🇩
                 </div>

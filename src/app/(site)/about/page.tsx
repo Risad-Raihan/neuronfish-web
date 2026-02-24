@@ -60,11 +60,12 @@ export default function AboutPage() {
             <div className="hidden md:block absolute top-6 left-0 right-0 h-px overflow-hidden">
               <div className="h-full w-full bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
             </div>
-            <div className="grid gap-8 md:grid-cols-4">
+            <div className="grid gap-8 md:grid-cols-5">
               {[
-                { year: "2023", title: "Inception", desc: "NeuronFish was founded with a small team and a big dream." },
-                { year: "2024 Q1", title: "DIKKHA Prototype", desc: "Launched the first alpha version of our AI tutor." },
-                { year: "2024 Q3", title: "CHHAR Pilot", desc: "Started pilot testing deal finding in Dhaka." },
+                { year: "2025", title: "Inception", desc: "NeuronFish was founded with a small team and a big dream." },
+                { year: "January 2026", title: "Dikkha Pilot", desc: "Launched pilot of our AI tutor." },
+                { year: "February 2026", title: "Chhar Pilot", desc: "Started pilot testing deal finding in Dhaka." },
+                { year: "March 2026", title: "Dhara Pilot", desc: "Pilot launch of Dhara." },
                 { year: "Future", title: "Growth", desc: "Scaling our products to serve millions nationwide." }
               ].map((item, i) => (
                 <div key={i} className="relative text-center">

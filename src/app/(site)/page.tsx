@@ -19,7 +19,7 @@ export default function HomePage() {
       <section className="relative overflow-hidden py-28 md:py-36 lg:py-44">
         <div className="absolute inset-0 -z-20">
           <img
-            src="/hero.jpg"
+            src="/hero.jpeg"
             alt="Abstract AI network background"
             className="h-full w-full object-cover"
           />
@@ -51,7 +51,13 @@ export default function HomePage() {
             className="max-w-4xl text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl"
           >
             Building agentic AI solutions{" "}
-            <span className="bg-gradient-to-r from-[#5ea061] via-[#80bf82] to-[#4C8E4F] bg-clip-text text-transparent">
+            <span
+              className="bg-gradient-to-r from-[#5ea061] via-[#80bf82] to-[#4C8E4F] bg-clip-text text-transparent"
+              style={{
+                textShadow:
+                  "0 0 15px #4C8E4F, 0 0 30px #4C8E4F, 0 0 45px rgba(76,142,79,0.7)",
+              }}
+            >
               & next-gen apps
             </span>
           </motion.h1>

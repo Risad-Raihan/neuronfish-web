@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowRight, BarChart3, Calculator, GraduationCap, Handshake, Plane } from "lucide-react"
+import { ArrowRight, BarChart3, GraduationCap, Handshake, Plane } from "lucide-react"
 import { Button } from "@/components/ui/Button"
 import { Container } from "@/components/ui/Container"
 import { SectionHeading } from "@/components/ui/SectionHeading"
@@ -140,7 +140,7 @@ export default function ProductsPage() {
         <Container>
           <SectionHeading
             title="Upcoming Products"
-            subtitle="Five new AI products currently in planning and development."
+            subtitle="Four new AI products currently in planning and development."
             className="mb-10"
           />
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
@@ -150,12 +150,6 @@ export default function ProductsPage() {
                 desc: "Trusted booking service specifically designed for NGO facilities.",
                 icon: Handshake,
                 image: "/products/Dhara_placeholder.jpeg",
-              },
-              {
-                title: "Tax Assistant",
-                desc: "AI-powered personal and business tax assistant for Bangladesh.",
-                icon: Calculator,
-                image: "/products/Tax-assistant-placeholder.jpeg",
               },
               {
                 title: "Study Abroad Assistant",

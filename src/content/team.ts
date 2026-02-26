@@ -29,15 +29,6 @@ export const TEAM_MEMBERS: TeamMember[] = [
     github: "#", // Placeholder
   },
   {
-    id: "mrittika",
-    name: "Mrittika Roy",
-    role: "Lead, AI Department",
-    bio: "Expert in machine learning and natural language processing. Spearheading our AI research initiatives.",
-    initials: "MR",
-    linkedin: "#", // Placeholder
-    github: "#", // Placeholder
-  },
-  {
     id: "nafis",
     name: "Nafis Radoan",
     role: "Lead, Full-Stack Department",

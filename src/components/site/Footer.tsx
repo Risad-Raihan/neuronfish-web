@@ -68,6 +68,16 @@ export function Footer() {
                   Dikkha AI Terms
                 </Link>
               </li>
+              <li>
+                <Link href="/chhar/privacy" className="transition-colors hover:text-foreground">
+                  Chhar Privacy
+                </Link>
+              </li>
+              <li>
+                <Link href="/chhar/terms" className="transition-colors hover:text-foreground">
+                  Chhar Terms
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

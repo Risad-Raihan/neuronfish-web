@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { ArrowRight, BarChart3, GraduationCap, Handshake, Plane } from "lucide-react"
+import { DIKKHA_PLAY_STORE_URL } from "@/lib/constants"
 import { Button } from "@/components/ui/Button"
 import { Container } from "@/components/ui/Container"
 import { SectionHeading } from "@/components/ui/SectionHeading"
@@ -72,13 +73,27 @@ export default function ProductsPage() {
                     </li>
                   ))}
                 </ul>
-                <div className="mt-auto pt-4">
+                <div className="mt-auto pt-4 flex flex-wrap gap-3">
                   <Button
                     asChild
-                    className="w-full sm:w-auto group/btn bg-[#8b38bc] text-white hover:bg-[#7b2ea8]"
+                    className="group/btn bg-[#8b38bc] text-white hover:bg-[#7b2ea8] hover:scale-[1.02] hover:shadow-[0_0_24px_rgba(139,56,188,0.35)] transition-all duration-200"
+                  >
+                    <a
+                      href={DIKKHA_PLAY_STORE_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2"
+                    >
+                      Get the APP <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover/btn:translate-x-1" />
+                    </a>
+                  </Button>
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="group/btn border-[#8b38bc]/40 bg-transparent text-[#c786e0] hover:bg-[#8b38bc]/15 hover:border-[#8b38bc]/60 hover:scale-[1.02] transition-all duration-200"
                   >
                     <Link href="/products/dikkha" className="flex items-center gap-2">
-                      View Details <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                      View Details <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover/btn:translate-x-1" />
                     </Link>
                   </Button>
                 </div>

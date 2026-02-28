@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { ArrowRight, BookOpen, Brain, CalendarClock, FileText, ImageIcon, NotebookPen, ScanText, Sparkles, Rocket, WandSparkles } from "lucide-react"
+import { DIKKHA_PLAY_STORE_URL } from "@/lib/constants"
 import { FAQAccordion } from "@/components/ui/FAQAccordion"
 import { Badge } from "@/components/ui/Badge"
 import { Button } from "@/components/ui/Button"
@@ -52,12 +53,17 @@ export default function DikkhaPage() {
                 <Button
                   size="lg"
                   variant="glow"
-                  className="bg-[#8b38bc] text-white hover:bg-[#7b2ea8]"
+                  className="group/btn bg-[#8b38bc] text-white hover:bg-[#7b2ea8] hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(139,56,188,0.4)] transition-all duration-200"
                   asChild
                 >
-                  <Link href="/contact?subject=DIKKHA%20AI%20Early%20Access">
-                    Get Early Access
-                  </Link>
+                  <a
+                    href={DIKKHA_PLAY_STORE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2"
+                  >
+                    Get the APP <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover/btn:translate-x-1" />
+                  </a>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
                   <Link href="#features">Learn More</Link>
@@ -428,12 +434,17 @@ export default function DikkhaPage() {
               <Button
                 size="lg"
                 variant="glow"
-                className="bg-[#8b38bc] text-white hover:bg-[#7b2ea8]"
+                className="group/btn bg-[#8b38bc] text-white hover:bg-[#7b2ea8] hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(139,56,188,0.4)] transition-all duration-200"
                 asChild
               >
-                <Link href="/contact?subject=Dikkha%20AI%20Early%20Access" className="flex items-center gap-2">
-                  Get Early Access <ArrowRight className="h-4 w-4" />
-                </Link>
+                <a
+                  href={DIKKHA_PLAY_STORE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2"
+                >
+                  Get the APP <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover/btn:translate-x-1" />
+                </a>
               </Button>
             </div>
           </div>

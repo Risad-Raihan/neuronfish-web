@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowRight, BarChart3, GraduationCap, Handshake, Plane } from "lucide-react"
+import { ArrowRight, GraduationCap, Handshake, Plane } from "lucide-react"
 import { DIKKHA_PLAY_STORE_URL } from "@/lib/constants"
 import { Button } from "@/components/ui/Button"
 import { Container } from "@/components/ui/Container"
@@ -155,10 +155,10 @@ export default function ProductsPage() {
         <Container>
           <SectionHeading
             title="Upcoming Products"
-            subtitle="Four new AI products currently in planning and development."
+            subtitle="Three new AI products currently in planning and development."
             className="mb-10"
           />
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {[
               {
                 title: "Dhara",
@@ -177,12 +177,6 @@ export default function ProductsPage() {
                 desc: "AI-powered domestic and international travel planning assistant for Bangladeshi travelers.",
                 icon: Plane,
                 image: "/products/travel-partner-placeholder.jpeg",
-              },
-              {
-                title: "Human Language Analyst",
-                desc: "Natural-language SQL retrieval with advanced analytics, charting, and graphical explanations.",
-                icon: BarChart3,
-                image: "/products/human-language-placeholder.jpeg",
               },
             ].map((product, i) => (
               <GlowCard key={i} className="p-5">

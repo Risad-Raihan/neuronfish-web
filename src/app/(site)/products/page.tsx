@@ -107,7 +107,7 @@ export default function ProductsPage() {
                   <div className="flex h-full items-center justify-center pt-8">
                     <div className="text-center">
                       <span className="block text-4xl mb-2">🏷️</span>
-                      <span className="text-xs font-bold tracking-widest text-muted-foreground uppercase">CHHAR</span>
+                      <span className="text-xs font-bold tracking-widest text-muted-foreground uppercase">CHHAR <span className="font-normal normal-case tracking-normal">- ছাড়</span></span>
                     </div>
                   </div>
                 </div>
@@ -118,7 +118,7 @@ export default function ProductsPage() {
                     Lifestyle
                   </span>
                 </div>
-                <h2 className="mb-3 text-2xl font-semibold text-foreground">CHHAR</h2>
+                <h2 className="mb-3 text-2xl font-semibold text-foreground">CHHAR <span className="font-medium">- ছাড়</span></h2>
                 <p className="mb-6 text-sm text-muted-foreground leading-relaxed">
                   Your ultimate companion for finding the best deals and promotions in Dhaka. CHHAR uses location-based technology to alert you about discounts nearby, helping you save money on dining, shopping, and services you love.
                 </p>

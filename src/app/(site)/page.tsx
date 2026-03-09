@@ -154,7 +154,7 @@ export default function HomePage() {
                     <div className="flex h-full items-center justify-center pt-8">
                       <div className="text-center">
                         <span className="block text-4xl mb-2">🏷️</span>
-                        <span className="text-xs font-bold tracking-widest text-muted-foreground uppercase">CHHAR</span>
+                        <span className="text-xs font-bold tracking-widest text-muted-foreground uppercase">CHHAR <span className="font-normal normal-case tracking-normal">- ছাড়</span></span>
                       </div>
                     </div>
                   </div>
@@ -164,7 +164,7 @@ export default function HomePage() {
                     <span className="inline-flex items-center rounded-full bg-emerald-500/10 px-2.5 py-0.5 text-xs font-medium text-emerald-600 dark:text-emerald-400">Lifestyle</span>
                     <span className="inline-flex items-center rounded-full bg-emerald-500/10 px-2.5 py-0.5 text-xs font-medium text-emerald-600 dark:text-emerald-400">Savings</span>
                   </div>
-                  <h3 className="text-2xl font-semibold tracking-tight text-foreground">CHHAR</h3>
+                  <h3 className="text-2xl font-semibold tracking-tight text-foreground">CHHAR <span className="font-medium">- ছাড়</span></h3>
                   <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
                     Location-based discounts and promotions app focused on Dhaka. Find deals near you instantly.
                   </p>

@@ -32,7 +32,7 @@ export default function ChharPage() {
               </Badge>
               <h1 className="mb-6 text-4xl font-extrabold tracking-tight sm:text-5xl">
                 Never Miss a Deal with{" "}
-                <span className="bg-gradient-to-r from-[#7eb680] via-[#69a96c] to-[#4C8E4F] bg-clip-text text-transparent">CHHAR</span>
+                <span className="bg-gradient-to-r from-[#7eb680] via-[#69a96c] to-[#4C8E4F] bg-clip-text text-transparent">CHHAR <span className="font-semibold">- ছাড়</span></span>
               </h1>
               <p className="mb-8 text-lg text-muted-foreground leading-relaxed">
                 Your location-powered savings companion. Discover nearby offers, explore store maps, and redeem the best discounts around you from one modern app experience.

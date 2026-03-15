@@ -1,6 +1,6 @@
 # Terms and Conditions for Dikkha AI
 
-**Last Updated:** January 15, 2026
+**Last Updated:** March 15, 2026
 
 ---
 
@@ -161,7 +161,7 @@ Your privacy is important to us. Our collection and use of personal information 
 - Continued use after changes constitutes acceptance
 
 ### 9.3 Third-Party Services
-- The App relies on third-party services (Firebase, Google Cloud)
+- The App relies on third-party cloud services (Google Cloud Platform)
 - We are not responsible for third-party service interruptions
 
 ---
@@ -225,8 +225,8 @@ You agree to indemnify and hold harmless Dikkha AI, its officers, directors, emp
 For questions or concerns about these Terms, please contact us:
 
 **App Name:** Dikkha AI  
-**Developer:** Nafis Radoan  
-**Email:** contact@neuronfish.dev  
+**Developer:** NeuronFish    
+**Email:** aistartup70@gmail.com   
 **Address:** Dhaka, Bangladesh
 
 ---

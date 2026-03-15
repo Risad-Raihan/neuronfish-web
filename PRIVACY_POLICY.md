@@ -1,6 +1,6 @@
 # Privacy Policy for Dikkha AI
 
-**Last Updated:** January 15, 2026
+**Last Updated:** March 15, 2026
 
 ---
 
@@ -101,15 +101,15 @@ We do not sell your personal information. We share your information only in the 
 
 We share your information with trusted third-party service providers who assist us in operating the App:
 
-- **Google Firebase** (Authentication & Database):
-  - We use Firebase Authentication for phone verification
-  - We use Firebase Firestore to store your profile, chat conversations, and reports
-  - Firebase's privacy policy: https://firebase.google.com/support/privacy
-  
-- **Backend AI Service** (GCP Cloud Run):
-  - Your chat messages are sent to our backend AI service to generate responses
-  - This service is hosted on Google Cloud Platform
-  - Messages are processed and stored temporarily for conversation context
+- **Dikkha Backend API** (GCP Cloud Run):
+  - We use our own backend service for phone-based OTP authentication, user profile management, chat sessions, flashcards, and AI-powered responses
+  - This service is hosted on Google Cloud Platform (Asia-Southeast1)
+  - Your chat messages are processed to generate AI responses and stored for conversation context
+  - Authentication is handled via JWT (JSON Web Tokens) issued by our backend after phone verification
+
+- **Google Cloud Platform**:
+  - Our backend infrastructure and content storage are hosted on GCP
+  - Google Cloud's privacy notice: https://cloud.google.com/terms/cloud-privacy-notice
 
 - **Google Fonts**:
   - We use Google Fonts for UI typography
@@ -133,18 +133,18 @@ We may share your information with third parties when you explicitly consent to 
 
 ### 4.1 Storage Locations
 
-- **Local Storage**: Some data (reading progress, cached content, quizzes, flashcards) is stored locally on your device using secure local storage (Hive database)
-- **Cloud Storage**: Your profile, chat conversations, and reports are stored securely on Firebase Firestore servers (hosted by Google Cloud Platform)
-- **Backend Storage**: Chat messages and conversation context are temporarily stored on our backend AI service
+- **Local Storage**: Some data (reading progress, cached content, quizzes, flashcards) is stored locally on your device using secure local storage (Hive database). Authentication tokens are stored in encrypted device storage (Android Keystore-backed secure storage).
+- **Cloud Storage**: Your profile, chat conversations, chat sessions, and reports are stored securely on our backend servers hosted on Google Cloud Platform (Asia-Southeast1)
+- **Backend Storage**: Chat messages, conversation context, flashcards, and infographics are stored on our backend service for persistence and retrieval across sessions
 
 ### 4.2 Data Security
 
 We implement appropriate technical and organizational security measures to protect your personal information:
 
 - **Encryption**: Data transmitted between your device and our servers is encrypted using HTTPS/TLS
-- **Authentication**: Access to your account is protected by phone number verification
-- **Access Controls**: We use Firebase Security Rules to restrict access to your data
-- **Secure Storage**: Cloud data is stored on secure servers with industry-standard security measures
+- **Authentication**: Access to your account is protected by phone number OTP verification and JWT-based session tokens
+- **Access Controls**: All API endpoints require authenticated JWT tokens; your data is isolated and accessible only through your authenticated session
+- **Secure Storage**: Cloud data is stored on secure Google Cloud Platform servers with industry-standard security measures. On-device authentication tokens are stored in Android Keystore-backed encrypted storage
 
 However, no method of transmission over the Internet or electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your information, we cannot guarantee absolute security.
 
@@ -213,9 +213,9 @@ Our App uses the following third-party services that have their own privacy poli
 
 | Service | Purpose | Privacy Policy |
 |---------|---------|----------------|
-| **Google Firebase** | Authentication & Database | https://firebase.google.com/support/privacy |
-| **Google Cloud Platform** | Backend AI Service Hosting | https://cloud.google.com/terms/cloud-privacy-notice |
+| **Google Cloud Platform** | Backend API Hosting & Content Storage | https://cloud.google.com/terms/cloud-privacy-notice |
 | **Google Fonts** | UI Typography | https://policies.google.com/privacy |
+| **Reve Systems** | SMS OTP Delivery | https://www.revesms.com/privacy-policy/ |
 
 We encourage you to review the privacy policies of these third-party services.
 
@@ -224,8 +224,8 @@ We encourage you to review the privacy policies of these third-party services.
 ## 9. International Data Transfers
 
 Your information may be transferred to and processed in countries other than your country of residence. Our servers are located in:
-- **Google Cloud Platform (Asia-Southeast1)**: For Firebase services
-- **Google Cloud Run (Asia-Southeast1)**: For backend AI services
+- **Google Cloud Run (Asia-Southeast1)**: For backend API, authentication, and AI services
+- **Google Cloud Storage (Asia-Southeast1)**: For educational content hosting
 
 These countries may have data protection laws that differ from those in your country. By using our App, you consent to the transfer of your information to these locations.
 
@@ -246,8 +246,8 @@ You are advised to review this Privacy Policy periodically for any changes. Chan
 ## 11. Data Controller Information
 
 **App Name:** Dikkha AI  
-**Developer:** Nafis Radoan  
-**Contact Email:** contact@neuronfish.dev  
+**Developer:** NeuronFish  
+**Contact Email:** aistartup70@gmail.com  
 **Address:** Dhaka, Bangladesh
 
 ---
@@ -256,7 +256,7 @@ You are advised to review this Privacy Policy periodically for any changes. Chan
 
 If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us at:
 
-**Email:** contact@neuronfish.dev  
+**Email:** aistartup70@gmail.com  
 **Subject Line:** Privacy Policy Inquiry
 
 We will respond to your inquiry within 30 days.

@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { ArrowRight, GraduationCap, Handshake, Plane } from "lucide-react"
-import { DIKKHA_PLAY_STORE_URL } from "@/lib/constants"
+import { DIKKHA_PLAY_STORE_URL, CHHAR_PLAY_STORE_URL } from "@/lib/constants"
 import { Button } from "@/components/ui/Button"
 import { Container } from "@/components/ui/Container"
 import { SectionHeading } from "@/components/ui/SectionHeading"
@@ -76,7 +76,7 @@ export default function ProductsPage() {
                 <div className="mt-auto pt-4 flex flex-wrap gap-3">
                   <Button
                     asChild
-                    className="group/btn bg-[#8b38bc] text-white hover:bg-[#7b2ea8] hover:scale-[1.02] hover:shadow-[0_0_24px_rgba(139,56,188,0.35)] transition-all duration-200"
+                    className="btn-get-app group/btn bg-[#8b38bc] text-white hover:bg-[#7b2ea8] hover:shadow-[0_0_32px_rgba(139,56,188,0.5)]"
                   >
                     <a
                       href={DIKKHA_PLAY_STORE_URL}
@@ -84,7 +84,7 @@ export default function ProductsPage() {
                       rel="noopener noreferrer"
                       className="flex items-center gap-2"
                     >
-                      Get the APP <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover/btn:translate-x-1" />
+                      Get the App <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover/btn:translate-x-1" />
                     </a>
                   </Button>
                   <Button
@@ -134,13 +134,27 @@ export default function ProductsPage() {
                     </li>
                   ))}
                 </ul>
-                <div className="mt-auto pt-4">
+                <div className="mt-auto pt-4 flex flex-wrap gap-3">
                   <Button
                     asChild
-                    className="w-full sm:w-auto group/btn bg-[#4C8E4F] text-white hover:bg-[#417a43]"
+                    className="btn-get-app group/btn bg-[#4C8E4F] text-white hover:bg-[#417a43] hover:shadow-[0_0_32px_rgba(76,142,79,0.5)]"
+                  >
+                    <a
+                      href={CHHAR_PLAY_STORE_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2"
+                    >
+                      Get the App <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover/btn:translate-x-1" />
+                    </a>
+                  </Button>
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="group/btn border-[#4C8E4F]/40 bg-transparent text-emerald-400 hover:bg-[#4C8E4F]/15 hover:border-[#4C8E4F]/60 transition-all duration-200"
                   >
                     <Link href="/products/chhar" className="flex items-center gap-2">
-                      View Details <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                      View Details <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover/btn:translate-x-1" />
                     </Link>
                   </Button>
                 </div>

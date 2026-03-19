@@ -180,6 +180,47 @@ p {
   50% { background-position: 100% 50%; }
 }
 
+/* ── Get the App button: shine sweep + glow pulse ── */
+@keyframes shine-sweep {
+  0% { transform: translateX(-100%) skewX(-15deg); opacity: 0; }
+  50% { opacity: 0.4; }
+  100% { transform: translateX(200%) skewX(-15deg); opacity: 0; }
+}
+
+.btn-get-app {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+}
+.btn-get-app::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.25) 45%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0.25) 55%,
+    transparent 100%
+  );
+  transform: translateX(-100%) skewX(-15deg);
+  animation: none;
+  pointer-events: none;
+}
+.btn-get-app:hover {
+  transform: scale(1.05);
+}
+.btn-get-app:hover::before {
+  animation: shine-sweep 0.7s ease-out forwards;
+}
+.btn-get-app:active {
+  transform: scale(0.96);
+}
+.btn-get-app:active::before {
+  animation: none;
+}
+
 .animate-fade-up {
   animation: fade-up 0.5s ease-out forwards;
   opacity: 0;

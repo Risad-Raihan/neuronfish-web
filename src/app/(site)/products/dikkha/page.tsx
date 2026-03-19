@@ -434,7 +434,7 @@ export default function DikkhaPage() {
               <Button
                 size="lg"
                 variant="glow"
-                className="group/btn bg-[#8b38bc] text-white hover:bg-[#7b2ea8] hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(139,56,188,0.4)] transition-all duration-200"
+                className="btn-get-app group/btn bg-[#8b38bc] text-white hover:bg-[#7b2ea8] hover:shadow-[0_0_40px_rgba(139,56,188,0.5)]"
                 asChild
               >
                 <a
@@ -443,7 +443,7 @@ export default function DikkhaPage() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-2"
                 >
-                  Get the APP <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover/btn:translate-x-1" />
+                  Get the App <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover/btn:translate-x-1" />
                 </a>
               </Button>
             </div>

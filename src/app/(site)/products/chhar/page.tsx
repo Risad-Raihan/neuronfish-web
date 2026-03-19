@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { MapPin, Bell, Store, ArrowRight, Search, Tag, Navigation } from "lucide-react"
+import { CHHAR_PLAY_STORE_URL } from "@/lib/constants"
 import { Button } from "@/components/ui/Button"
 import { Container } from "@/components/ui/Container"
 import { SectionHeading } from "@/components/ui/SectionHeading"
@@ -41,12 +42,17 @@ export default function ChharPage() {
                 <Button
                   size="lg"
                   variant="glow"
-                  className="bg-[#4C8E4F] text-white hover:bg-[#417a43]"
+                  className="btn-get-app group/btn bg-[#4C8E4F] text-white hover:bg-[#417a43] hover:shadow-[0_0_40px_rgba(76,142,79,0.5)]"
                   asChild
                 >
-                  <Link href="/contact?subject=CHHAR%20Partnership">
-                    Partner with Us
-                  </Link>
+                  <a
+                    href={CHHAR_PLAY_STORE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2"
+                  >
+                    Get the App <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover/btn:translate-x-1" />
+                  </a>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
                   <Link href="#how-it-works">See How It Works</Link>
@@ -257,7 +263,7 @@ export default function ChharPage() {
               },
               {
                 question: "I am a business owner. How can I list my offers?",
-                answer: "We'd love to have you! Click the 'Partner with Us' button to contact our sales team for onboarding."
+                answer: "We'd love to have you! Visit our Contact page to reach our sales team for merchant onboarding."
               },
               {
                 question: "Does it work offline?",
@@ -278,17 +284,22 @@ export default function ChharPage() {
               <div className="absolute bottom-0 right-0 h-52 w-52 rounded-full bg-[#7eb680]/20 blur-[110px]" />
             </div>
             <div className="relative">
-              <h2 className="mb-4 text-3xl font-extrabold sm:text-4xl text-white">Grow your business with CHHAR</h2>
-              <p className="mb-8 text-lg text-zinc-400">Connect with thousands of local customers looking for deals today.</p>
+              <h2 className="mb-4 text-3xl font-extrabold sm:text-4xl text-white">Ready to save with CHHAR?</h2>
+              <p className="mb-8 text-lg text-zinc-400">Download now and discover the best deals around you in Dhaka.</p>
               <Button
                 size="lg"
                 variant="glow"
-                className="bg-[#4C8E4F] text-white hover:bg-[#417a43]"
+                className="btn-get-app group/btn bg-[#4C8E4F] text-white hover:bg-[#417a43] hover:shadow-[0_0_40px_rgba(76,142,79,0.5)]"
                 asChild
               >
-                <Link href="/contact?subject=CHHAR%20Partnership" className="flex items-center gap-2">
-                  Become a Partner <ArrowRight className="h-4 w-4" />
-                </Link>
+                <a
+                  href={CHHAR_PLAY_STORE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2"
+                >
+                  Get the App <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover/btn:translate-x-1" />
+                </a>
               </Button>
             </div>
           </div>

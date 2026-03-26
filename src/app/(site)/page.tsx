@@ -162,14 +162,18 @@ export default function HomePage() {
                 <div className="absolute top-0 right-4 w-44 h-44 rounded-full bg-indigo-500/18 blur-[65px] pointer-events-none" />
                 <div className="absolute bottom-0 left-4 w-36 h-36 rounded-full bg-fuchsia-500/15 blur-[55px] pointer-events-none" />
 
-                {/* Back phone — AI explain, tilted right, slightly translucent */}
-                <img
-                  src="/products/dikkha/slides/slide4.png"
-                  alt=""
-                  aria-hidden
-                  className="absolute right-0 top-8 w-[215px] rounded-2xl rotate-[9deg] opacity-60 z-0"
-                  style={{ filter: "drop-shadow(0 24px 60px rgba(0,0,0,0.65))" }}
-                />
+                {/* Back phone — CHHAR app, tilted right, slightly translucent */}
+                <div
+                  className="absolute right-0 top-8 w-[195px] h-[390px] rounded-[30px] border border-white/10 overflow-hidden rotate-[9deg] opacity-65 z-0"
+                  style={{ boxShadow: "0 24px 60px rgba(0,0,0,0.65)" }}
+                >
+                  <img
+                    src="/products/chhar/chhar-homepage.jpeg"
+                    alt=""
+                    aria-hidden
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
 
                 {/* Front phone — Library, tilted left, floating */}
                 <img
@@ -222,16 +226,27 @@ export default function HomePage() {
             {/* Dikkha card */}
             <AnimateOnScroll delay={100}>
               <GlowCard className="flex flex-col h-full overflow-hidden">
-                {/* Screenshot preview */}
-                <div className="relative h-60 overflow-hidden">
-                  <img
-                    src="/products/dikkha/slides/slide2.png"
-                    alt="Dikkha AI — My Library"
-                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
-                  {/* Product badge overlay */}
-                  <div className="absolute top-3 left-3 flex items-center gap-2 rounded-xl border border-[#8b38bc]/40 bg-background/80 px-2.5 py-1.5 backdrop-blur-sm">
+                {/* 3-slide preview strip */}
+                <div className="relative h-56 overflow-hidden flex gap-[3px] bg-[#0a0614]">
+                  {[
+                    { src: "/products/dikkha/slides/slide2.png", alt: "My Library" },
+                    { src: "/products/dikkha/slides/slide5.png", alt: "SSC 2026" },
+                    { src: "/products/dikkha/slides/slide6.png", alt: "Flashcards" },
+                  ].map((slide, i) => (
+                    <div key={i} className="flex-1 overflow-hidden">
+                      <img
+                        src={slide.src}
+                        alt={slide.alt}
+                        className="w-full h-full object-cover object-top"
+                      />
+                    </div>
+                  ))}
+                  {/* Bottom fade */}
+                  <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-card to-transparent pointer-events-none" />
+                  {/* Top tint */}
+                  <div className="absolute inset-x-0 top-0 h-12 bg-gradient-to-b from-[#8b38bc]/15 to-transparent pointer-events-none" />
+                  {/* Product badge */}
+                  <div className="absolute top-3 left-3 flex items-center gap-2 rounded-xl border border-[#8b38bc]/40 bg-background/85 px-2.5 py-1.5 backdrop-blur-sm">
                     <img src="/products/dikkha/dikkha-logo.svg" alt="Dikkha AI" className="h-5 w-5 rounded" />
                     <span className="text-xs font-bold text-[#d09be8]">Dikkha AI</span>
                   </div>
@@ -308,29 +323,44 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* ── One-row screenshot teaser strip ── */}
-      <div className="relative overflow-hidden py-2 border-y border-white/[0.05]">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_100%_at_50%_50%,rgba(139,56,188,0.07),transparent)]" />
-        <div className="flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-          <div className="flex gap-3 shrink-0 animate-marquee-left py-3" style={{ animationDuration: "45s" }}>
-            {TEASER_SLIDES.map((s, i) => (
-              <Link key={i} href="/products/dikkha" className="shrink-0 block">
-                <img
-                  src={s}
-                  alt=""
-                  aria-hidden
-                  className="w-[110px] h-[160px] rounded-xl object-cover object-top border border-[#8b38bc]/20 hover:border-[#8b38bc]/50 transition-all duration-200 hover:scale-[1.04]"
-                />
-              </Link>
+      {/* ── Stats ticker ── */}
+      <div className="relative overflow-hidden border-y border-white/[0.06]">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_100%_at_50%_50%,rgba(109,40,217,0.07),transparent)] pointer-events-none" />
+        <div className="flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]">
+          <div
+            className="flex items-center gap-0 shrink-0 animate-marquee-left"
+            style={{ animationDuration: "38s" }}
+          >
+            {[
+              { stat: "16+", label: "NCTB Textbooks" },
+              { stat: "8+", label: "Subjects Covered" },
+              { stat: "AI", label: "Answers in Bangla" },
+              { stat: "SSC 2026", label: "Exam Suggestions" },
+              { stat: "Flashcards", label: "From Any Text" },
+              { stat: "Formula Sheet", label: "All Science Subjects" },
+              { stat: "AI Infographics", label: "Visual Learning" },
+              { stat: "Dhaka", label: "Location-Based Deals" },
+              { stat: "Hot Deals", label: "Near You Now" },
+              { stat: "16+", label: "NCTB Textbooks" },
+              { stat: "8+", label: "Subjects Covered" },
+              { stat: "AI", label: "Answers in Bangla" },
+              { stat: "SSC 2026", label: "Exam Suggestions" },
+              { stat: "Flashcards", label: "From Any Text" },
+              { stat: "Formula Sheet", label: "All Science Subjects" },
+              { stat: "AI Infographics", label: "Visual Learning" },
+              { stat: "Dhaka", label: "Location-Based Deals" },
+              { stat: "Hot Deals", label: "Near You Now" },
+            ].map((item, i) => (
+              <div key={i} className="flex items-center shrink-0">
+                <div className="flex items-baseline gap-2 px-7 py-4">
+                  <span className="text-sm font-black text-foreground tracking-tight">{item.stat}</span>
+                  <span className="text-sm text-muted-foreground">{item.label}</span>
+                </div>
+                <span className="text-[#8b38bc]/35 text-xs select-none">◆</span>
+              </div>
             ))}
           </div>
         </div>
-        <p className="text-center text-[11px] text-muted-foreground mt-1 mb-2 tracking-wide">
-          Swipe through Dikkha AI →{" "}
-          <Link href="/products/dikkha" className="text-[#c786e0] hover:text-[#d9b5ed] underline underline-offset-2">
-            See full product
-          </Link>
-        </p>
       </div>
 
       {/* ── Why NeuronFish ── */}

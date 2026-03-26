@@ -379,6 +379,14 @@ p {
   animation: marquee-right 35s linear infinite;
 }
 
+.animate-marquee-left-slow {
+  animation: marquee-left 90s linear infinite;
+}
+
+.animate-marquee-right-slow {
+  animation: marquee-right 90s linear infinite;
+}
+
 /* ── CSS device mockup ── */
 .device-phone {
   position: relative;

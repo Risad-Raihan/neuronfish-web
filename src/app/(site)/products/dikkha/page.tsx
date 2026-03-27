@@ -7,7 +7,6 @@ import {
   NotebookPen,
   ScanText,
   Sparkles,
-  WandSparkles,
   Zap,
   Users,
   Star,
@@ -143,26 +142,6 @@ export default function DikkhaPage() {
                 {/* Magenta accent — left */}
                 <div className="absolute top-1/2 -left-8 h-28 w-28 rounded-full bg-fuchsia-500/15 blur-[45px]" />
 
-                {/* Floating badge top-left */}
-                <div className="pointer-events-none absolute -left-12 top-16 hidden rounded-2xl border border-[#8b38bc]/35 bg-background/85 px-3 py-2 text-xs font-medium text-foreground shadow-xl backdrop-blur-md lg:block z-20">
-                  <span className="flex items-center gap-1.5">
-                    <WandSparkles className="h-3.5 w-3.5 text-[#b26ed4]" />
-                    Select → AI Explain
-                  </span>
-                </div>
-
-                {/* Floating badge bottom-right */}
-                <div className="pointer-events-none absolute -right-12 bottom-20 hidden rounded-2xl border border-[#8b38bc]/35 bg-background/85 px-3 py-2 text-xs font-medium text-foreground shadow-xl backdrop-blur-md lg:block z-20">
-                  <span className="flex items-center gap-1.5">
-                    <Sparkles className="h-3.5 w-3.5 text-[#b26ed4]" />
-                    Instant Flashcards
-                  </span>
-                </div>
-
-                {/* SSC urgency badge */}
-                <div className="pointer-events-none absolute -right-8 top-10 hidden rounded-2xl border border-amber-500/45 bg-amber-950/70 px-3 py-2 text-xs font-semibold text-amber-300 shadow-xl backdrop-blur-md lg:block z-20">
-                  SSC 2026 Ready
-                </div>
 
                 {/* The hero image — store listing slide */}
                 <img

@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Navbar } from "@/components/site/Navbar"
 import { Footer } from "@/components/site/Footer"
+import { ChatWidget } from "@/components/pluto/ChatWidget"
 
 export default function SiteLayout({
   children,
@@ -12,6 +13,7 @@ export default function SiteLayout({
       <Navbar />
       <main className="flex-1">{children}</main>
       <Footer />
+      <ChatWidget />
     </div>
   )
 }

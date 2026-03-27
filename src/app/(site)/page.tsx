@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { ArrowRight, Bot, Smartphone, GraduationCap, MapPin, ShieldCheck, Users, Sparkles, WandSparkles, Play } from "lucide-react"
+import { ArrowRight, Bot, Smartphone, GraduationCap, MapPin, ShieldCheck, Users, Sparkles, Play } from "lucide-react"
 import { motion } from "motion/react"
 import { Button } from "@/components/ui/Button"
 import { Container } from "@/components/ui/Container"
@@ -162,16 +162,16 @@ export default function HomePage() {
                 <div className="absolute top-0 right-4 w-44 h-44 rounded-full bg-indigo-500/18 blur-[65px] pointer-events-none" />
                 <div className="absolute bottom-0 left-4 w-36 h-36 rounded-full bg-fuchsia-500/15 blur-[55px] pointer-events-none" />
 
-                {/* Back phone — CHHAR app, tilted right, slightly translucent */}
+                {/* Back phone — CHHAR app, tilted right */}
                 <div
-                  className="absolute right-0 top-8 w-[195px] h-[390px] rounded-[30px] border border-white/10 overflow-hidden rotate-[9deg] opacity-65 z-0"
+                  className="absolute right-0 top-8 w-[195px] h-[390px] rounded-[30px] border border-white/10 overflow-hidden rotate-[9deg] opacity-80 z-0"
                   style={{ boxShadow: "0 24px 60px rgba(0,0,0,0.65)" }}
                 >
                   <img
-                    src="/products/chhar/chhar-homepage.jpeg"
+                    src="/products/chhar/chhar-mock.png"
                     alt=""
                     aria-hidden
-                    className="w-full h-full object-cover object-top"
+                    className="w-full h-full object-cover object-[52%_28%]"
                   />
                 </div>
 
@@ -185,26 +185,6 @@ export default function HomePage() {
                   }}
                 />
 
-                {/* Floating feature badge — top left */}
-                <div className="absolute -left-4 top-6 z-20 hidden xl:block rounded-2xl border border-[#8b38bc]/35 bg-background/88 px-3 py-2 text-[11px] font-medium text-foreground shadow-xl backdrop-blur-md">
-                  <span className="flex items-center gap-1.5 text-[#d09be8]">
-                    <WandSparkles className="h-3.5 w-3.5" />
-                    Select → AI Explain
-                  </span>
-                </div>
-
-                {/* Floating feature badge — bottom right */}
-                <div className="absolute -right-2 bottom-14 z-20 hidden xl:block rounded-2xl border border-[#8b38bc]/35 bg-background/88 px-3 py-2 text-[11px] font-medium text-foreground shadow-xl backdrop-blur-md">
-                  <span className="flex items-center gap-1.5 text-[#d09be8]">
-                    <Sparkles className="h-3.5 w-3.5" />
-                    Instant Flashcards
-                  </span>
-                </div>
-
-                {/* SSC urgency badge */}
-                <div className="absolute right-8 top-2 z-20 hidden xl:block rounded-2xl border border-amber-500/40 bg-amber-950/75 px-3 py-2 text-[11px] font-semibold text-amber-300 shadow-xl backdrop-blur-md">
-                  SSC 2026 Ready
-                </div>
               </div>
             </motion.div>
 

@@ -265,13 +265,26 @@ export default function HomePage() {
             {/* CHHAR card */}
             <AnimateOnScroll delay={200}>
               <GlowCard className="flex flex-col h-full overflow-hidden">
-                <div className="relative h-60 bg-gradient-to-br from-emerald-950/60 to-teal-900/40 flex items-center justify-center overflow-hidden">
-                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_50%,rgba(16,185,129,0.15),transparent)]" />
-                  <div className="text-center relative z-10">
-                    <div className="text-7xl mb-3">🏷️</div>
-                    <span className="text-2xl font-black tracking-tight text-emerald-300">ছাড়</span>
-                  </div>
-                  <div className="absolute top-3 left-3 flex items-center gap-2 rounded-xl border border-emerald-500/35 bg-background/80 px-2.5 py-1.5 backdrop-blur-sm">
+                <div className="relative h-56 overflow-hidden flex gap-[3px] bg-[#021a0e]">
+                  {[
+                    { src: "/products/chhar/chhar-homepage.jpeg", alt: "CHHAR Home" },
+                    { src: "/products/chhar/chhar-discount-details.jpeg", alt: "Deal Details" },
+                    { src: "/products/chhar/chhar-map.jpeg", alt: "Map View" },
+                  ].map((slide, i) => (
+                    <div key={i} className="flex-1 overflow-hidden">
+                      <img
+                        src={slide.src}
+                        alt={slide.alt}
+                        className="w-full h-full object-cover object-top"
+                      />
+                    </div>
+                  ))}
+                  {/* Bottom fade */}
+                  <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-card to-transparent pointer-events-none" />
+                  {/* Top tint */}
+                  <div className="absolute inset-x-0 top-0 h-12 bg-gradient-to-b from-emerald-900/20 to-transparent pointer-events-none" />
+                  {/* Product badge */}
+                  <div className="absolute top-3 left-3 flex items-center gap-2 rounded-xl border border-emerald-500/35 bg-background/85 px-2.5 py-1.5 backdrop-blur-sm">
                     <span className="text-sm leading-none">🏷️</span>
                     <span className="text-xs font-bold text-emerald-400">CHHAR</span>
                   </div>

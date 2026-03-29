@@ -442,7 +442,7 @@ export default function HomePage() {
               <Link href="/about">View All Members</Link>
             </Button>
           </div>
-          <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <StaggerContainer className="grid gap-6 sm:grid-cols-3">
             {TEAM_MEMBERS.slice(0, 4).map((member) => (
               <StaggerItem key={member.id}>
                 <TeamCard member={member} />

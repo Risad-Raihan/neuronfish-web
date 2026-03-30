@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Github, Linkedin } from "lucide-react"
+import { Github, Linkedin, Globe } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/Avatar"
 import { GlowCard } from "@/components/ui/GlowCard"
 import { TeamMember } from "@/content/team"
@@ -29,6 +29,8 @@ export function TeamCard({ member }: TeamCardProps) {
           {member.linkedin && (
             <Link
               href={member.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-muted-foreground transition-colors hover:text-foreground"
               aria-label={`${member.name}'s LinkedIn`}
             >
@@ -38,10 +40,23 @@ export function TeamCard({ member }: TeamCardProps) {
           {member.github && (
             <Link
               href={member.github}
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-muted-foreground transition-colors hover:text-foreground"
               aria-label={`${member.name}'s GitHub`}
             >
               <Github className="h-4 w-4" />
+            </Link>
+          )}
+          {member.website && (
+            <Link
+              href={member.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground transition-colors hover:text-foreground"
+              aria-label={`${member.name}'s website`}
+            >
+              <Globe className="h-4 w-4" />
             </Link>
           )}
         </div>

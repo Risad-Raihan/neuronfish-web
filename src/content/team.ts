@@ -5,6 +5,7 @@ export interface TeamMember {
   bio: string
   linkedin?: string
   github?: string
+  website?: string
   photoUrl?: string
   initials: string
 }
@@ -16,8 +17,9 @@ export const TEAM_MEMBERS: TeamMember[] = [
     role: "Founder, CTO",
     bio: "Passionate about building scalable AI solutions. Leading the technical vision at NeuronFish.",
     initials: "RM",
-    linkedin: "#", // Placeholder
-    github: "#", // Placeholder
+    photoUrl: "/ami.jpeg",
+    linkedin: "https://www.linkedin.com/in/risad-raihan-malik/",
+    github: "https://github.com/Risad-Raihan",
   },
   {
     id: "saif",
@@ -25,8 +27,9 @@ export const TEAM_MEMBERS: TeamMember[] = [
     role: "Co-founder, Director",
     bio: "Driving growth and brand strategy. Focused on bringing AI products to the Bangladeshi market.",
     initials: "SR",
-    linkedin: "#", // Placeholder
-    github: "#", // Placeholder
+    photoUrl: "/saifbhai.jpeg",
+    linkedin: "https://www.linkedin.com/in/saif-rashid/",
+    website: "https://www.buildwithsaif.com/",
   },
   {
     id: "nafis",
@@ -34,8 +37,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     role: "Lead, Full-Stack Department",
     bio: "Full-stack wizard ensuring robust and seamless application experiences across our product suite.",
     initials: "NR",
-    linkedin: "#", // Placeholder
-    github: "#", // Placeholder
+    linkedin: "#",
+    github: "#",
   },
 ]
-

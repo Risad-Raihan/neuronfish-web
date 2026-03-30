@@ -1,12 +1,11 @@
 "use client"
 
 import Link from "next/link"
-import { ArrowRight, Bot, Smartphone, GraduationCap, MapPin, ShieldCheck, Users, Sparkles, Play } from "lucide-react"
+import { ArrowRight, Bot, Smartphone, GraduationCap, MapPin, ShieldCheck, Users, Sparkles, Play, Linkedin, Github, Globe } from "lucide-react"
 import { motion } from "motion/react"
 import { Button } from "@/components/ui/Button"
 import { Container } from "@/components/ui/Container"
 import { SectionHeading } from "@/components/ui/SectionHeading"
-import { TeamCard } from "@/components/site/TeamCard"
 import { AnimateOnScroll, StaggerContainer, StaggerItem } from "@/components/ui/AnimateOnScroll"
 import { GridPattern } from "@/components/ui/GridPattern"
 import { GlowCard } from "@/components/ui/GlowCard"
@@ -429,26 +428,168 @@ export default function HomePage() {
       </section>
 
       {/* ── Team Preview ── */}
-      <section className="py-20 md:py-28">
-        <Container>
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-            <SectionHeading
-              title="Meet the Team"
-              subtitle="The minds behind NeuronFish."
-              align="left"
-              className="mb-0"
-            />
-            <Button variant="outline" asChild>
-              <Link href="/about">View All Members</Link>
-            </Button>
-          </div>
-          <StaggerContainer className="grid gap-6 sm:grid-cols-3">
-            {TEAM_MEMBERS.slice(0, 4).map((member) => (
-              <StaggerItem key={member.id}>
-                <TeamCard member={member} />
-              </StaggerItem>
+      <section className="relative py-24 md:py-32 overflow-hidden">
+        {/* Ambient background */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_50%,rgba(37,99,235,0.06),transparent_70%)]" />
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-violet-600/[0.04] rounded-full blur-[120px]" />
+          <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-blue-600/[0.04] rounded-full blur-[100px]" />
+        </div>
+
+        <Container className="relative">
+          {/* Header */}
+          <AnimateOnScroll>
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+              <div>
+                <motion.span
+                  className="mb-3 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-1 text-xs font-medium text-zinc-400 tracking-wide uppercase"
+                  initial={{ opacity: 0, y: 8 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <Users className="h-3 w-3 text-primary" />
+                  Leadership
+                </motion.span>
+                <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl text-foreground">
+                  Meet the{" "}
+                  <span className="bg-gradient-to-r from-blue-400 via-violet-400 to-purple-400 bg-clip-text text-transparent">
+                    Founders
+                  </span>
+                </h2>
+                <p className="mt-3 text-muted-foreground text-lg max-w-md">
+                  Who&apos;s behind all this? Just two guys who won&apos;t stop shipping.
+                </p>
+              </div>
+              <Button variant="outline" asChild className="group shrink-0">
+                <Link href="/about" className="flex items-center gap-2">
+                  View Full Team
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </Button>
+            </div>
+          </AnimateOnScroll>
+
+          {/* Founder Cards */}
+          <div className="grid gap-6 md:gap-8 md:grid-cols-2">
+            {TEAM_MEMBERS.filter((m) => m.id === "risad" || m.id === "saif").map((member, index) => (
+              <motion.div
+                key={member.id}
+                initial={{ opacity: 0, y: 32, scale: 0.97 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{
+                  duration: 0.7,
+                  delay: index * 0.15,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+              >
+                <div className="group relative rounded-2xl border border-white/[0.06] bg-[#0d1117]/80 backdrop-blur-sm overflow-hidden transition-all duration-500 hover:border-white/[0.12] hover:shadow-[0_0_60px_-12px_rgba(37,99,235,0.15)]">
+                  {/* Top accent gradient */}
+                  <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                  <div className="relative p-8 md:p-10">
+                    {/* Avatar + Identity */}
+                    <div className="flex items-start gap-5 mb-6">
+                      {/* Animated avatar ring */}
+                      <motion.div
+                        className="relative shrink-0"
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                      >
+                        <div className="relative h-[72px] w-[72px]">
+                          {/* Spinning gradient ring */}
+                          <div
+                            className="absolute -inset-[3px] rounded-full opacity-60 group-hover:opacity-100 transition-opacity duration-500"
+                            style={{
+                              background: index === 0
+                                ? "conic-gradient(from 0deg, #2563eb, #7c3aed, #2563eb)"
+                                : "conic-gradient(from 180deg, #7c3aed, #2563eb, #7c3aed)",
+                              animation: "spin 6s linear infinite",
+                            }}
+                          />
+                          <div className="absolute inset-[2px] rounded-full bg-[#0d1117]" />
+                          {member.photoUrl ? (
+                            <img
+                              src={member.photoUrl}
+                              alt={member.name}
+                              className="absolute inset-[3px] rounded-full object-cover w-[calc(100%-6px)] h-[calc(100%-6px)]"
+                            />
+                          ) : (
+                            <div className="absolute inset-[3px] rounded-full bg-gradient-to-br from-primary/20 to-violet-600/20 flex items-center justify-center">
+                              <span className="text-xl font-bold bg-gradient-to-br from-blue-300 to-violet-300 bg-clip-text text-transparent select-none">
+                                {member.initials}
+                              </span>
+                            </div>
+                          )}
+                        </div>
+                      </motion.div>
+
+                      <div className="min-w-0 pt-1">
+                        <h3 className="text-xl font-bold tracking-tight text-white">
+                          {member.name}
+                        </h3>
+                        <div className="mt-1.5 inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-primary/[0.08] px-3 py-0.5">
+                          <div className="h-1.5 w-1.5 rounded-full bg-primary animate-gentle-pulse" />
+                          <span className="text-xs font-semibold text-blue-300 tracking-wide">
+                            {member.role}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Bio */}
+                    <p className="text-[15px] leading-relaxed text-zinc-400 mb-8">
+                      {member.bio}
+                    </p>
+
+                    {/* Social Links */}
+                    <div className="flex items-center gap-3">
+                      {member.linkedin && (
+                        <Link
+                          href={member.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group/link inline-flex items-center gap-2 rounded-lg border border-white/[0.06] bg-white/[0.03] px-3.5 py-2 text-sm text-zinc-400 transition-all duration-300 hover:border-[#0A66C2]/40 hover:bg-[#0A66C2]/10 hover:text-[#0A66C2] hover:shadow-[0_0_20px_-5px_rgba(10,102,194,0.3)]"
+                          aria-label={`${member.name}'s LinkedIn`}
+                        >
+                          <Linkedin className="h-4 w-4" />
+                          <span className="text-xs font-medium">LinkedIn</span>
+                        </Link>
+                      )}
+                      {member.github && (
+                        <Link
+                          href={member.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group/link inline-flex items-center gap-2 rounded-lg border border-white/[0.06] bg-white/[0.03] px-3.5 py-2 text-sm text-zinc-400 transition-all duration-300 hover:border-white/20 hover:bg-white/[0.08] hover:text-white hover:shadow-[0_0_20px_-5px_rgba(255,255,255,0.15)]"
+                          aria-label={`${member.name}'s GitHub`}
+                        >
+                          <Github className="h-4 w-4" />
+                          <span className="text-xs font-medium">GitHub</span>
+                        </Link>
+                      )}
+                      {member.website && (
+                        <Link
+                          href={member.website}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group/link inline-flex items-center gap-2 rounded-lg border border-white/[0.06] bg-white/[0.03] px-3.5 py-2 text-sm text-zinc-400 transition-all duration-300 hover:border-violet-500/30 hover:bg-violet-500/10 hover:text-violet-400 hover:shadow-[0_0_20px_-5px_rgba(139,92,246,0.3)]"
+                          aria-label={`${member.name}'s website`}
+                        >
+                          <Globe className="h-4 w-4" />
+                          <span className="text-xs font-medium">Portfolio</span>
+                        </Link>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Bottom ambient glow on hover */}
+                  <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-3/4 h-40 rounded-full bg-primary/[0.08] blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+                </div>
+              </motion.div>
             ))}
-          </StaggerContainer>
+          </div>
         </Container>
       </section>
 

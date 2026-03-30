@@ -10,6 +10,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading"
 import { AnimateOnScroll, StaggerContainer, StaggerItem } from "@/components/ui/AnimateOnScroll"
 import { GridPattern } from "@/components/ui/GridPattern"
 import { GlowCard } from "@/components/ui/GlowCard"
+import { MadeInBangladesh } from "@/components/site/MadeInBangladesh"
 import { TEAM_MEMBERS } from "@/content/team"
 
 const BG_SLIDES = [
@@ -606,11 +607,7 @@ export default function HomePage() {
             </AnimateOnScroll>
 
             <AnimateOnScroll delay={150}>
-              <div className="relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-primary/5 to-primary/15 p-10 flex flex-col items-center justify-center text-center">
-                <div className="mb-6 text-6xl md:text-7xl">🇧🇩</div>
-                <p className="text-3xl md:text-4xl font-extrabold text-foreground mb-2">Made in Bangladesh</p>
-                <p className="text-xl text-muted-foreground">For the World</p>
-              </div>
+              <MadeInBangladesh />
             </AnimateOnScroll>
           </div>
         </Container>

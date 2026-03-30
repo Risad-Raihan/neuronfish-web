@@ -414,6 +414,33 @@ p {
   box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
 }
 
+/* ── Why-card cursor-tracking spotlight + border glow ── */
+.why-card {
+  --spot-x: 50%;
+  --spot-y: 50%;
+  --spot-rgb: 255, 255, 255;
+  --border-rgb: 255, 255, 255;
+}
+.why-card__spotlight {
+  background: radial-gradient(
+    500px circle at var(--spot-x) var(--spot-y),
+    rgba(var(--spot-rgb), 0.13),
+    transparent 45%
+  );
+}
+.why-card__border-glow {
+  padding: 1px;
+  background: radial-gradient(
+    500px circle at var(--spot-x) var(--spot-y),
+    rgba(var(--border-rgb), 0.4),
+    transparent 40%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  border-radius: inherit;
+}
+
 /* ── Spinning gradient ring for team avatars ── */
 @keyframes spin {
   from { transform: rotate(0deg); }

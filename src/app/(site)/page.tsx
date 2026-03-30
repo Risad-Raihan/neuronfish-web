@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import { useRef, useCallback, useState, type ElementType } from "react"
 import { ArrowRight, Bot, Smartphone, GraduationCap, MapPin, ShieldCheck, Users, Sparkles, Play, Linkedin, Github, Globe } from "lucide-react"
 import { motion } from "motion/react"
 import { Button } from "@/components/ui/Button"
@@ -23,6 +24,122 @@ const BG_SLIDES = [
 ]
 
 const TEASER_SLIDES = [...BG_SLIDES, ...BG_SLIDES]
+
+interface WhyCardItem {
+  icon: ElementType
+  title: string
+  desc: string
+  orb1: string
+  orb2: string
+  iconColor: string
+  titleColor: string
+  ring: string
+  meshGradient: string
+  decorColor: string
+  spotlightRgb: string
+  borderGlowRgb: string
+}
+
+function WhyCard({ item }: { item: WhyCardItem; index: number }) {
+  const cardRef = useRef<HTMLDivElement>(null)
+  const [isHovered, setIsHovered] = useState(false)
+
+  const handleMouseMove = useCallback((e: React.MouseEvent) => {
+    const el = cardRef.current
+    if (!el) return
+    const rect = el.getBoundingClientRect()
+    const x = e.clientX - rect.left
+    const y = e.clientY - rect.top
+    el.style.setProperty("--spot-x", `${x}px`)
+    el.style.setProperty("--spot-y", `${y}px`)
+  }, [])
+
+  return (
+    <motion.div
+      ref={cardRef}
+      className="why-card relative rounded-2xl bg-[#0c1018] h-full overflow-hidden will-change-transform"
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      whileHover={{ y: -6, scale: 1.02 }}
+      transition={{ type: "spring", stiffness: 400, damping: 25, mass: 0.5 }}
+      style={{
+        "--spot-rgb": item.spotlightRgb,
+        "--border-rgb": item.borderGlowRgb,
+      } as React.CSSProperties}
+    >
+      {/* Cursor-tracking spotlight — uses CSS custom props for 60fps tracking */}
+      <div
+        className="why-card__spotlight absolute inset-0 pointer-events-none z-[1] opacity-0 transition-opacity duration-300"
+        style={{ opacity: isHovered ? 1 : 0 }}
+      />
+
+      {/* Cursor-tracking border glow */}
+      <div
+        className="why-card__border-glow absolute inset-0 rounded-2xl pointer-events-none z-[2] opacity-0 transition-opacity duration-300"
+        style={{ opacity: isHovered ? 1 : 0 }}
+      />
+
+      {/* Static border fallback */}
+      <div className="absolute inset-0 rounded-2xl border border-white/[0.04] pointer-events-none z-[3]" />
+
+      {/* Mesh gradient bg */}
+      <motion.div
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: item.meshGradient }}
+        animate={{ opacity: isHovered ? 1 : 0.5 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+      />
+
+      {/* Decorative geometry */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <motion.div
+          className={`absolute -top-16 -right-16 w-48 h-48 rounded-full border ${item.decorColor}`}
+          animate={{ opacity: isHovered ? 0.8 : 0.4, scale: isHovered ? 1.08 : 1 }}
+          transition={{ type: "spring", stiffness: 200, damping: 20 }}
+        />
+        <motion.div
+          className={`absolute -top-20 -right-20 w-56 h-56 rounded-full border ${item.decorColor}`}
+          animate={{ opacity: isHovered ? 0.5 : 0.2, scale: isHovered ? 1.05 : 1 }}
+          transition={{ type: "spring", stiffness: 150, damping: 20, delay: 0.03 }}
+        />
+        <div className={`absolute top-6 right-8 w-1 h-1 rounded-full ${item.orb1} opacity-60`} />
+        <div className={`absolute top-12 right-16 w-1.5 h-1.5 rounded-full ${item.orb2} opacity-40`} />
+        <div className={`absolute bottom-10 right-12 w-1 h-1 rounded-full ${item.orb1} opacity-30`} />
+        <div className={`absolute top-0 right-24 w-px h-20 ${item.decorColor} border-l rotate-[25deg] origin-top opacity-50`} />
+      </div>
+
+      {/* Glowing icon orb */}
+      <div className="relative pt-8 px-7 pb-0 flex justify-start z-[4]">
+        <div className="relative">
+          <motion.div
+            className={`absolute inset-0 ${item.orb1} rounded-full blur-2xl pointer-events-none`}
+            animate={{ scale: isHovered ? 3.5 : 2.5, opacity: isHovered ? 0.85 : 0.4 }}
+            transition={{ type: "spring", stiffness: 150, damping: 18 }}
+          />
+          <div className={`absolute inset-0 scale-[1.5] ${item.orb2} rounded-full blur-xl opacity-40 pointer-events-none`} />
+          <motion.div
+            className={`relative h-14 w-14 rounded-2xl ${item.iconColor} ring-1 ${item.ring} bg-white/[0.04] backdrop-blur-sm flex items-center justify-center`}
+            animate={{ scale: isHovered ? 1.15 : 1, rotate: isHovered ? -6 : 0 }}
+            transition={{ type: "spring", stiffness: 350, damping: 18 }}
+          >
+            <item.icon className="h-7 w-7" strokeWidth={1.5} />
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Text content */}
+      <div className="relative px-7 pt-5 pb-7 z-[4]">
+        <h3 className={`text-[17px] font-bold tracking-tight ${item.titleColor} mb-1.5`}>
+          {item.title}
+        </h3>
+        <p className="text-[13px] text-zinc-500 leading-relaxed">
+          {item.desc}
+        </p>
+      </div>
+    </motion.div>
+  )
+}
 
 export default function HomePage() {
   return (
@@ -365,23 +482,95 @@ export default function HomePage() {
               className="mb-14"
             />
           </AnimateOnScroll>
-          <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              { icon: Bot, title: "Advanced AI", desc: "Leveraging state-of-the-art models to deliver intelligent, adaptive experiences." },
-              { icon: MapPin, title: "Local Focus", desc: "Built specifically for the context and needs of Bangladesh and Dhaka." },
-              { icon: Smartphone, title: "User Centric", desc: "Intuitive, fast, and accessible designs that work for everyone." },
-              { icon: ShieldCheck, title: "Trust & Privacy", desc: "Committed to data security and ethical AI practices." },
-              { icon: GraduationCap, title: "Empowering Growth", desc: "Helping students learn better and businesses grow faster." },
-              { icon: Users, title: "Community First", desc: "Driven by feedback from our users to constantly improve." },
-            ].map((item, i) => (
+          <StaggerContainer className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {([
+              {
+                icon: Bot,
+                title: "Advanced AI",
+                desc: "State-of-the-art models. Intelligent, adaptive experiences.",
+                orb1: "bg-cyan-500/30",
+                orb2: "bg-teal-400/20",
+                iconColor: "text-cyan-300",
+                titleColor: "text-cyan-200",
+                ring: "ring-cyan-400/10",
+                meshGradient: "radial-gradient(ellipse 80% 60% at 20% 80%, rgba(6,182,212,0.18), transparent 60%), radial-gradient(ellipse 60% 50% at 80% 20%, rgba(20,184,166,0.12), transparent 55%)",
+                decorColor: "border-cyan-500/[0.07]",
+                spotlightRgb: "6, 182, 212",
+                borderGlowRgb: "6, 182, 212",
+              },
+              {
+                icon: MapPin,
+                title: "Local Focus",
+                desc: "Built for the context and needs of Bangladesh.",
+                orb1: "bg-amber-500/30",
+                orb2: "bg-orange-400/20",
+                iconColor: "text-amber-300",
+                titleColor: "text-amber-200",
+                ring: "ring-amber-400/10",
+                meshGradient: "radial-gradient(ellipse 70% 60% at 75% 75%, rgba(245,158,11,0.18), transparent 60%), radial-gradient(ellipse 50% 40% at 15% 25%, rgba(251,146,60,0.10), transparent 50%)",
+                decorColor: "border-amber-500/[0.07]",
+                spotlightRgb: "245, 158, 11",
+                borderGlowRgb: "245, 158, 11",
+              },
+              {
+                icon: Smartphone,
+                title: "User Centric",
+                desc: "Intuitive, fast, and accessible for everyone.",
+                orb1: "bg-rose-500/30",
+                orb2: "bg-pink-400/20",
+                iconColor: "text-rose-300",
+                titleColor: "text-rose-200",
+                ring: "ring-rose-400/10",
+                meshGradient: "radial-gradient(ellipse 65% 55% at 30% 70%, rgba(244,63,94,0.18), transparent 60%), radial-gradient(ellipse 55% 45% at 85% 30%, rgba(236,72,153,0.10), transparent 50%)",
+                decorColor: "border-rose-500/[0.07]",
+                spotlightRgb: "244, 63, 94",
+                borderGlowRgb: "244, 63, 94",
+              },
+              {
+                icon: ShieldCheck,
+                title: "Trust & Privacy",
+                desc: "Data security and ethical AI, always.",
+                orb1: "bg-emerald-500/30",
+                orb2: "bg-green-400/20",
+                iconColor: "text-emerald-300",
+                titleColor: "text-emerald-200",
+                ring: "ring-emerald-400/10",
+                meshGradient: "radial-gradient(ellipse 75% 65% at 70% 80%, rgba(16,185,129,0.18), transparent 60%), radial-gradient(ellipse 50% 40% at 20% 15%, rgba(52,211,153,0.08), transparent 50%)",
+                decorColor: "border-emerald-500/[0.07]",
+                spotlightRgb: "16, 185, 129",
+                borderGlowRgb: "16, 185, 129",
+              },
+              {
+                icon: GraduationCap,
+                title: "Empowering Growth",
+                desc: "Students learn better. Businesses grow faster.",
+                orb1: "bg-violet-500/30",
+                orb2: "bg-purple-400/20",
+                iconColor: "text-violet-300",
+                titleColor: "text-violet-200",
+                ring: "ring-violet-400/10",
+                meshGradient: "radial-gradient(ellipse 70% 60% at 25% 75%, rgba(139,92,246,0.18), transparent 60%), radial-gradient(ellipse 55% 45% at 80% 25%, rgba(168,85,247,0.10), transparent 50%)",
+                decorColor: "border-violet-500/[0.07]",
+                spotlightRgb: "139, 92, 246",
+                borderGlowRgb: "139, 92, 246",
+              },
+              {
+                icon: Users,
+                title: "Community First",
+                desc: "Shaped by real feedback from real users.",
+                orb1: "bg-sky-500/30",
+                orb2: "bg-blue-400/20",
+                iconColor: "text-sky-300",
+                titleColor: "text-sky-200",
+                ring: "ring-sky-400/10",
+                meshGradient: "radial-gradient(ellipse 65% 60% at 80% 70%, rgba(14,165,233,0.18), transparent 60%), radial-gradient(ellipse 50% 40% at 15% 30%, rgba(56,189,248,0.10), transparent 50%)",
+                decorColor: "border-sky-500/[0.07]",
+                spotlightRgb: "14, 165, 233",
+                borderGlowRgb: "14, 165, 233",
+              },
+            ] as const).map((item, i) => (
               <StaggerItem key={i}>
-                <GlowCard className="p-6 h-full">
-                  <div className="mb-4 inline-flex rounded-lg bg-primary/10 p-2.5 text-primary">
-                    <item.icon className="h-5 w-5" />
-                  </div>
-                  <h3 className="mb-2 text-lg font-semibold text-foreground">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
-                </GlowCard>
+                <WhyCard item={item} index={i} />
               </StaggerItem>
             ))}
           </StaggerContainer>

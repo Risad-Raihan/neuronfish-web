@@ -4,6 +4,8 @@ import Link from "next/link"
 import { useRef, useCallback, useState, type ElementType } from "react"
 import { ArrowRight, Bot, Smartphone, GraduationCap, MapPin, ShieldCheck, Users, Sparkles, Play, Linkedin, Github, Globe } from "lucide-react"
 import { motion } from "motion/react"
+import Lottie from "lottie-react"
+import fishSplash from "@/../public/fish-splash.json"
 import { Button } from "@/components/ui/Button"
 import { Container } from "@/components/ui/Container"
 import { SectionHeading } from "@/components/ui/SectionHeading"
@@ -301,6 +303,25 @@ export default function HomePage() {
                     boxShadow: "0 32px 80px rgba(0,0,0,0.65), 0 0 0 1px rgba(139,56,188,0.22), 0 0 60px rgba(120,40,200,0.15)",
                   }}
                 />
+
+                {/* Fish jumping between phones — Lottie has built-in arc from right→left */}
+                <div
+                  className="absolute z-20 pointer-events-none overflow-visible"
+                  style={{
+                    left: "50px",
+                    top: "-180px",
+                    width: "300px",
+                    height: "300px",
+                  }}
+                >
+                  <Lottie
+                    animationData={fishSplash}
+                    loop
+                    autoplay
+                    className="w-full h-full"
+                    style={{ overflow: "visible" }}
+                  />
+                </div>
 
               </div>
             </motion.div>
